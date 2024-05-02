@@ -5,13 +5,16 @@ import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
+import Loader from "../Root/Loader/Loader";
 
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   
   const onSubmit = (data) => console.log(data);
-  
+  if(img.length > 2){
+    return <Loader />
+  }
   return (
     <section className="pt-20">
       <div
