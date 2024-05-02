@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { HiOutlineArrowLongRight } from "react-icons/hi2";
-import { HiOutlineArrowLongLeft } from "react-icons/hi2";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { Fade, Flip } from "react-awesome-reveal";
 import { useState } from "react";
 import BtnPrimary from "../Buttons/BtnPrimary";
@@ -31,7 +31,7 @@ const Banner = () => {
         pagination={{ dynamicBullets: true }}
         loop={true}
         autoplay={{
-          delay: 10000
+          delay: 5000
         }}
         navigation={{
           nextEl: "#next",
@@ -73,19 +73,19 @@ const Banner = () => {
         <div className="flex justify-between items-center">
           <button
             id="prev"
-            className={`px-4 py-2 ${
+            className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
             } bg-black absolute top-1/2 left-0 z-20 rounded-r cursor-pointer`}
           >
-            <HiOutlineArrowLongLeft className="text-3xl text-white" />
+            <IoIosArrowRoundBack className="text-3xl text-white" />
           </button>
           <button
             id="next"
-            className={`px-4 py-2 ${
+            className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
             } bg-black absolute top-1/2 right-0 z-20 rounded-l cursor-pointer transition-all`}
           >
-            <HiOutlineArrowLongRight className="text-3xl text-white" />
+            <IoIosArrowRoundForward className="text-3xl text-white" />
           </button>
         </div>
       </Swiper>

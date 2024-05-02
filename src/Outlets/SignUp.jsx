@@ -1,16 +1,17 @@
 import { Fade } from "react-awesome-reveal";
-import InpEmail from "../InputFields/InpEmail";
-import InpText from "../InputFields/InpText";
-import BtnPrimary from "../Buttons/BtnPrimary";
-import InpPass from "../InputFields/InpPass";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import BtnPrimary from "../Buttons/BtnPrimary";
+import InpText from "../InputFields/InpText";
+import InpPassword from "../InputFields/InpPassword";
+import InpEmail from "../InputFields/InpEmail";
 
 const SignUp = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
-  const handlesignUp = (e) =>{
-    e.preventDefault()
-    console.log("hello Form");
-  }
+  
+  const { register, handleSubmit , formState: { errors } } = useForm();
+  const onSubmit = (data) => console.log(data);
+  
   return (
     <section className="pt-20">
       <div
@@ -31,42 +32,33 @@ const SignUp = () => {
             </Fade>
             <Fade direction="up" delay={300}>
               <p className="font-semibold max-w-lg text-center text-white">
-                Please enter your details to sign up and be part of our great
-                community.
+                Please enter your details to sign up and be part of our great community.
               </p>
             </Fade>
           </div>
           <div className="bg-white/35 backdrop-blur-md flex flex-col justify-center py-20 px-7 space-y-4">
-            <form onSubmit={handlesignUp} id="signUp" className="space-y-3">
+            <form onSubmit={handleSubmit(onSubmit)} id="signUp" className="space-y-3">
+              {/* Name Input */}
               <Fade direction="up" delay={500}>
-                <InpText
-                  title={"Name"}
-                  hColor={"text-white"}
-                  placeholder={"Enter Your name"}
-                />
+                <InpText title={"Name"} hColor={"text-white"} name={"name"} register={register} />
               </Fade>
+              {/* Email Input */}
               <Fade direction="up" delay={700}>
-                <InpEmail
-                  hColor={"text-white"}
-                  placeholder={"Enter Your Email"}
-                />
+                <InpEmail register={register} />
               </Fade>
+              {/* PassWord Input */}
               <Fade direction="up" delay={900}>
-                <InpPass hColor={"text-white"} />
+                <InpPassword register={register} errors={errors} />
               </Fade>
             </form>
             <Fade direction="up" delay={1100}>
-              <BtnPrimary
-                text={"Sign Up"}
-                cStyle={"text-black hover:text-white w-full"}
-                form={'#signUp'}
-              />
+              <BtnPrimary text={"Sign Up"} cStyle={"text-black hover:text-white w-full"} form={"signUp"} />
             </Fade>
             <Fade direction="up" delay={1400}>
               <div className="text-center">
                 <p className="font-semibold cursor-pointer transition-all">
                   Already have an account?
-                  <Link to={'/logIn'} className="text-blue-800 hover:underline ml-3">
+                  <Link to={"/logIn"} className="text-blue-800 hover:underline ml-3">
                     Log In
                   </Link>
                 </p>
