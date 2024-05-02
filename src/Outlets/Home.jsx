@@ -2,7 +2,7 @@ import Banner from "../Sections/Banner";
 
  const Home = () => {
     return (
-        <section className="nav_h_minus">
+        <section className="">
             <Banner/>
         </section>
     );
