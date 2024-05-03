@@ -5,16 +5,12 @@ import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
-import Loader from "../Root/Loader/Loader";
 
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
-  
+
   const onSubmit = (data) => console.log(data);
-  if(img.length > 2){
-    return <Loader />
-  }
   return (
     <section className="pt-20">
       <div
@@ -35,12 +31,17 @@ const LogIn = () => {
             </Fade>
             <Fade direction="up" delay={300}>
               <p className="font-semibold max-w-lg text-center text-white">
-                Please enter your details to sign up and be part of our great community.
+                Please enter your details to sign up and be part of our great
+                community.
               </p>
             </Fade>
           </div>
           <div className="bg-white/35 backdrop-blur-md flex flex-col justify-center py-20 px-7 space-y-4 rounded-s-lg lg:rounded-s-none rounded-e-lg">
-            <form onSubmit={handleSubmit(onSubmit)} id="logIn" className="space-y-3">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              id="logIn"
+              className="space-y-3"
+            >
               <Fade direction="up" delay={500}>
                 <InpEmail register={register} />
               </Fade>
@@ -50,7 +51,7 @@ const LogIn = () => {
             </form>
             <Fade direction="up" delay={900}>
               <BtnPrimary
-                text={"Log In"}
+                title={"Log In"}
                 cStyle={"text-black hover:text-white w-full"}
                 form={"logIn"}
               />

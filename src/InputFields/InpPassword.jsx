@@ -37,7 +37,7 @@ const InpPassword = ({ register, errors }) => {
 };
 
 InpPassword.propTypes = {
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   errors: PropTypes.object, // PropTypes for errors object
 };
 

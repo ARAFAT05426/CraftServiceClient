@@ -52,7 +52,7 @@ const SignUp = () => {
               </Fade>
             </form>
             <Fade direction="up" delay={1100}>
-              <BtnPrimary text={"Sign Up"} cStyle={"text-black hover:text-white w-full"} form={"signUp"} />
+              <BtnPrimary title={"Sign Up"} cStyle={"text-black hover:text-white w-full"} form={"signUp"} />
             </Fade>
             <Fade direction="up" delay={1400}>
               <div className="text-center">

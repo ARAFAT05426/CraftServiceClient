@@ -15,7 +15,7 @@ const InpEmail = ({ register }) => {
 };
 
 InpEmail.propTypes = {
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
 };
 
 export default InpEmail;

@@ -17,8 +17,8 @@ const InpText = ({ name, title, hColor, register }) => {
 
 InpText.propTypes = {
   name: PropTypes.string,
+  register: PropTypes.func,
   hColor: PropTypes.string,
-  register: PropTypes.any,
   title: PropTypes.string,
 };
 

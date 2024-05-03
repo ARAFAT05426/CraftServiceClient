@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import './BtnCss.css'
-const BtnPrimary = ({text, cStyle, form}) => {
+const BtnPrimary = ({title, cStyle, form}) => {
     return (
         <button form={form} className={`primary ${cStyle}`}>
-            {text}
+            {title}
         </button>
     );
 };
 BtnPrimary.propTypes ={
     form: PropTypes.string,
-    text: PropTypes.string,
+    title: PropTypes.string,
     cStyle: PropTypes.string
 }
 export default BtnPrimary;

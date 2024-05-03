@@ -64,7 +64,7 @@ const Banner = () => {
                   </p>
                 </Fade>
                 <Flip direction="horizontal" delay={1000}>
-                  <BtnPrimary text={"hello Swiper"} cStyle={"text-black hover:text-white"}/>
+                  <BtnPrimary title={"hello Swiper"} cStyle={"text-black hover:text-white"}/>
                 </Flip>
               </div>
             </div>

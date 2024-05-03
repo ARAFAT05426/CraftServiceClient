@@ -1,4 +1,11 @@
 import { FiLink, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaBehance,
+  FaGithub,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -10,7 +17,7 @@ const Footer = () => {
           <p className="text-sm">VP of Sales, SomeCompany</p>
         </div>
         {/* Divider_Area */}
-        <div className="w-16 h-1 my-4 bg-base-content rounded lg:w-1 lg:h-16"></div>
+        <div className="w-4/5 h-1 my-4 bg-base-content rounded lg:w-1 lg:h-28"></div>
         <div>
           <div className="flex items-center py-1">
             <FiMail className="text-base-content" size={18} />
@@ -31,36 +38,36 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-base-300 ">
-        <div className="p-4 text-sm md:flex md:items-center md:justify-center">
+        <div className="p-4 text-sm flex items-center justify-center">
           <a
             href="#_"
             className="block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-black"
           >
-            <span>Facebook</span>
+            <FaFacebook className="inline-block mr-2" size={20} />
           </a>
           <a
             href="#_"
             className="block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-black"
           >
-            <span>Twitter</span>
+            <FaTwitter className="inline-block mr-2" size={20} />
           </a>
           <a
             href="#_"
             className="block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-black"
           >
-            <span>Instagram</span>
+            <FaInstagram className="inline-block mr-2" size={20} />
           </a>
           <a
             href="#_"
             className="block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-black"
           >
-            <span>Behance</span>
+            <FaBehance className="inline-block mr-2" size={20} />
           </a>
           <a
             href="#_"
             className="block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-black"
           >
-            <span>GitHub</span>
+            <FaGithub className="inline-block mr-2" size={20} />
           </a>
         </div>
       </div>
