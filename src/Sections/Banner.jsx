@@ -75,7 +75,7 @@ const Banner = () => {
             id="prev"
             className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
-            } bg-black absolute top-1/2 left-0 z-20 rounded-r cursor-pointer`}
+            } bg-black bg-opacity-65 absolute top-1/2 left-0 z-20 rounded-r cursor-pointer`}
           >
             <IoIosArrowRoundBack className="text-3xl text-white" />
           </button>
@@ -83,7 +83,7 @@ const Banner = () => {
             id="next"
             className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
-            } bg-black absolute top-1/2 right-0 z-20 rounded-l cursor-pointer transition-all`}
+            } bg-black bg-opacity-65 absolute top-1/2 right-0 z-20 rounded-l cursor-pointer transition-all`}
           >
             <IoIosArrowRoundForward className="text-3xl text-white" />
           </button>

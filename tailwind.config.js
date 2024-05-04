@@ -10,6 +10,17 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "dark"]
+    themes: [ "light", "dark"
+      // {
+      //   light: {
+      //     ...require("daisyui/src/theming/themes")["light"],
+      //     "primary" : "black"
+      //   },
+      //   dark: {
+      //     ...require("daisyui/src/theming/themes")["dark"],
+      //     "primary" : "green"
+      //   }
+      // },
+    ]
   },
 };

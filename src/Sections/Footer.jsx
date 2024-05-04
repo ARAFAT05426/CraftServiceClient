@@ -10,15 +10,15 @@ import {
 const Footer = () => {
   return (
     <div className="bg-base-200 rounded text-base-content">
-      <div className="p-4 lg:flex lg:justify-around lg:items-center sm:p-12">
+      <div className="p-4 flex flex-col lg:flex-row justify-around items-center sm:p-12">
         {/* Left_Area */}
-        <div className="lg:text-center">
+        <div className="text-center">
           <h1 className="text-2xl font-bold text-base-content">Irene Sims</h1>
           <p className="text-sm">VP of Sales, SomeCompany</p>
         </div>
         {/* Divider_Area */}
         <div className="w-4/5 h-1 my-4 bg-base-content rounded lg:w-1 lg:h-28"></div>
-        <div>
+        <div className="flex flex-col items-center lg:items-start">
           <div className="flex items-center py-1">
             <FiMail className="text-base-content" size={18} />
             <span className="px-4">irene.sims@example.com</span>
