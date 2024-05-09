@@ -40,13 +40,10 @@ const About = () => {
             </Fade>
             <Fade direction="left" triggerOnce>
               <div>
-                <a
-                  href="/"
-                  className="inline-flex items-center font-semibold text-deep-purple-accent-400 hover:text-deep-purple-800"
-                >
+                <button className="inline-flex items-center font-semibold text-deep-purple-accent-400 hover:text-deep-purple-800">
                   Learn more
                   <BsFillArrowRightSquareFill className="inline-block w-4 ml-2" />
-                </a>
+                </button>
               </div>
             </Fade>
           </div>
@@ -99,42 +96,40 @@ const About = () => {
             </p>
           </div>
           <div>
-            <div className="flex items-center space-x-3 lg:pl-8">
-              <Fade direction="right" triggerOnce>
-                <div className="flex flex-col items-end space-y-2">
-                  <img
-                    className="object-cover rounded-full shadow-lg h-20 sm:h-32 xl:h-40 w-20 sm:w-32 xl:w-40"
-                    src={personImageUrls[0]}
-                    alt=""
-                  />
-                  <img
-                    className="object-cover w-32 h-32 rounded-full shadow-lg sm:h-48 xl:h-64 sm:w-48 xl:w-64 mt-6"
-                    src={personImageUrls[5]}
-                    alt=""
-                  />
-                  <img
-                    className="object-cover w-20 h-20 rounded-full shadow-lg sm:h-28 xl:h-48 sm:w-32 xl:w-48"
-                    src={personImageUrls[1]}
-                    alt=""
-                  />
-                  <img
-                    className="object-cover w-20 h-20 rounded-full shadow-lg sm:h-32 xl:h-28 sm:w-32 xl:w-28"
-                    src={personImageUrls[2]}
-                    alt=""
-                  />
-                </div>
-              </Fade>
+            <div className="flex justify-between items-center rounded-full border border-white w-full p-5 ">
+              <div className="flex flex-col items-end space-y-2">
+                <img
+                  className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out h-20 sm:h-32 xl:h-40 w-20 sm:w-32 xl:w-40 border border-white"
+                  src={personImageUrls[0]}
+                  alt="Team member 1"
+                />
+                <img
+                  className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-32 h-32 sm:h-48 xl:h-64 sm:w-48 xl:w-64 mt-6 border border-white"
+                  src={personImageUrls[5]}
+                  alt="Team member 6"
+                />
+                <img
+                  className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-20 h-20 sm:h-28 xl:h-48 sm:w-32 xl:w-48 border border-white"
+                  src={personImageUrls[1]}
+                  alt="Team member 2"
+                />
+                <img
+                  className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-20 h-20 sm:h-32 xl:h-28 sm:w-32 xl:w-28 border border-white"
+                  src={personImageUrls[2]}
+                  alt="Team member 3"
+                />
+              </div>
               <Fade direction="right" triggerOnce>
                 <div className="flex flex-col items-start">
                   <img
-                    className="object-cover w-40 h-40 rounded-full shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
+                    className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-40 h-40 sm:h-64 xl:h-80 sm:w-64 xl:w-80 border border-white"
                     src={personImageUrls[3]}
-                    alt=""
+                    alt="Team member 4"
                   />
                   <img
-                    className="object-cover w-32 h-32 rounded-full shadow-lg sm:h-48 xl:h-64 sm:w-48 xl:w-64 mt-6"
+                    className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-32 h-32 sm:h-48 xl:h-64 sm:w-48 xl:w-64 mt-6 border border-white"
                     src={personImageUrls[4]}
-                    alt=""
+                    alt="Team member 5"
                   />
                 </div>
               </Fade>

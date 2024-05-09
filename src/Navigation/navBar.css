@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
   z-index: 10;
 }
 
@@ -77,6 +76,24 @@
   width: 100%;
   position: fixed;
   left: 0;
-  transition: all 0.5s ease; /* Smooth height transition */
+  transition: all 0.5s ease; 
   overflow: hidden;
+}
+
+/* User Profile */
+.user-dropdown .dropdown-menu {
+  border-radius: 0.3rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.3s ease-out;
+}
+
+.user-dropdown .dropdown-menu p {
+  font-weight: 700;
+  padding: 0.5rem .75rem;
+  margin: 0;
+}
+
+.user-dropdown .dropdown-menu.h-auto {
+  max-height: 150px; 
 }

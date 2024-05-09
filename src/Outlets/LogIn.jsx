@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
@@ -9,8 +9,19 @@ import InpEmail from "../InputFields/InpEmail";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => console.log(data);
+  const navigate = useNavigate()
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  const handleSocialSignIn = (method) => {
+    method()
+      .then(() => {
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <section className="pt-20">
       <div
@@ -78,7 +89,7 @@ const LogIn = () => {
             </Fade>
             <Fade direction="up" delay={1500}>
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
-                <button className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black">
+                <button onClick={() =>handleSocialSignIn()} className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black">
                   <img
                     className="w-[11%]"
                     src="/resources/googleIcon.png"
@@ -86,7 +97,7 @@ const LogIn = () => {
                   />
                   Log In With Google
                 </button>
-                <button className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white">
+                <button onClick={() =>handleSocialSignIn()} className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white">
                   <FaGithub className="text-4xl" />
                   Log In With Github
                 </button>

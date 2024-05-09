@@ -6,11 +6,15 @@ const Private = ({ children }) => {
   const { user, loading } = useCallContext();
   const location = useLocation();
   if (loading) {
-    return <Loader></Loader>;
+    return <Loader />;
   }
   if (!user) {
     return (
-      <Navigate to={"/logIn"} state={location?.pathname || "/"}></Navigate>
+      <Navigate
+        to={"/logIn"}
+        state={location?.pathname || "/"}
+        replace={true}
+      ></Navigate>
     );
   }
   return <section>{children}</section>;

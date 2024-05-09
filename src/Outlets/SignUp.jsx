@@ -10,7 +10,12 @@ const SignUp = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   
   const { register, handleSubmit , formState: { errors } } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>{
+    const { pass } = data;
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
+      return console.log("passValue error");
+    }
+  };
   
   return (
     <section className="pt-20">

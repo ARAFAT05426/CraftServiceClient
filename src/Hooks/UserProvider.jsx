@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {  GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile,
 } from "firebase/auth";
-import auth from "../Config/Firebase";
 import UserContext from "./UserContext";
+import auth from "../Config/Firebase.config";
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);

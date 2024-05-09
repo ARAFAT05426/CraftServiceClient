@@ -1,9 +1,9 @@
 import Lottie from "lottie-react";
-import loadAnimation from './loadAnimation.json'
+import loader from './loader.json'
 const Loader = () => {
     return (
-        <section className="w-full bg-base-100 dark:bg-base-100">
-            <Lottie className="w-3/4 mx-auto" loop={true} animationData={loadAnimation} />
+        <section className="w-full bg-base-100 min-h-screen flex justify-center">
+            <Lottie className="w-1/4 mx-auto" loop={true} animationData={loader} />
         </section>
     );
 };

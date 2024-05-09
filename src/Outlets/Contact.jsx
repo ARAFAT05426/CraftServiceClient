@@ -1,8 +1,9 @@
 import { BiPhoneCall } from "react-icons/bi";
 import { IoChatbubbles } from "react-icons/io5";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Flip } from "react-awesome-reveal"; // Import Fade animation from react-awesome-reveal
 import InpAny from "../InputFields/InpAny";
 import BtnPrimary from "../Buttons/BtnPrimary";
+
 const Contact = () => {
   const img = "https://source.unsplash.com/random/1920x1080";
   const contactMethods = [
@@ -39,7 +40,7 @@ const Contact = () => {
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${img})`,
           }}
         >
-          <Fade triggerOnce>
+          <Fade direction="up"> {/* Use Fade animation with "up" direction */}
             <h1 className="text-5xl font-bold text-white text-center py-8 lg:py-16">
               CONTACT US IF U FACE ANY PROBLEM
             </h1>
@@ -51,7 +52,7 @@ const Contact = () => {
         <div className="w-[95%] lg:w-4/5 mx-auto px-5 py-10 bg-base-100 border shadow-md -mt-20 flex flex-col lg:flex-row space-y-3 justify-between">
           <div className="space-y-4 flex flex-col">
             {contactMethods.map((method, index) => (
-              <Fade key={index} triggerOnce delay={index * 150}>
+              <Fade key={index} direction="down" delay={index * 150}> {/* Use Fade animation with "down" direction */}
                 <div className="px-5 py-3 border shadow w-full">
                   <div className="flex items-center gap-3 justify-between">
                     {method.icon}
@@ -63,7 +64,7 @@ const Contact = () => {
                     <span className="text-blue-700 text-2xl font-extrabold">
                       {method.phoneNumber}
                     </span>
-                    <Fade cascade triggerOnce delay={index * 150}>
+                    <Fade cascade delay={index * 150}> {/* Use Fade animation */}
                       <p className="text-sm text-blue-500 hover:underline cursor-pointer font-semibold">
                         See all numbers and locations
                       </p>
@@ -74,7 +75,7 @@ const Contact = () => {
             ))}
           </div>
           <div>
-            <Fade triggerOnce>
+            <Fade direction="up"> {/* Use Fade animation with "up" direction */}
               <div className="flex flex-col items-center space-y-3">
                 <h1 className="text-center text-3xl font-semibold">
                   Book a Meeting
@@ -84,7 +85,7 @@ const Contact = () => {
                 </p>
               </div>
             </Fade>
-            <Fade triggerOnce delay={300}>
+            <Flip direction="horizontal" delay={300}> {/* Use Fade animation with "up" direction */}
               <div className="px-3 lg:px-20">
                 <InpAny title={"Name"} />
                 <InpAny title={"Email"} />
@@ -98,7 +99,7 @@ const Contact = () => {
                   title={"Submit"}
                 />
               </div>
-            </Fade>
+            </Flip>
           </div>
         </div>
       </div>
