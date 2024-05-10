@@ -1,17 +1,23 @@
 import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
-import { FaGithub } from "react-icons/fa6";
+// import { FaGithub } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const { signUser } = useCallContext();
+  const { user, signUser, loading, signUserWithGoogle } = useCallContext();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
   const onSubmit = (data, e) => {
     const { email, pass } = data;
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
@@ -62,6 +68,9 @@ const LogIn = () => {
         console.log(err);
       });
   };
+  if (user || loading) {
+    return;
+  }
   return (
     <section className="pt-20">
       <div
@@ -125,24 +134,24 @@ const LogIn = () => {
             </Fade>
             <Fade direction="up" triggerOnce delay={1500}>
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
-                <button
-                  onClick={() => handleSocialSignIn()}
-                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black"
+                <span
+                  onClick={() => handleSocialSignIn(signUserWithGoogle)}
+                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-4/5 text-nowrap font-bold text-black"
                 >
                   <img
-                    className="w-[11%]"
+                    className="w-[7%]"
                     src="/resources/googleIcon.png"
                     alt=""
                   />
                   Log In With Google
-                </button>
-                <button
+                </span>
+                {/* <button
                   onClick={() => handleSocialSignIn()}
                   className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white"
                 >
                   <FaGithub className="text-4xl" />
                   Log In With Github
-                </button>
+                </button> */}
               </div>
             </Fade>
           </div>

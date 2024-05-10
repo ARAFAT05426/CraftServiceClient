@@ -6,6 +6,9 @@ export default {
       minHeight: {
         nav_h_minus: "calc(100vh - 64px)",
       },
+      fontFamily: {
+        common: `Barlow Condensed', sans-serif`
+      },
       boxShadow: {
         custom: '0px 6px 0px 0px', // Custom box shadow size without color
       }

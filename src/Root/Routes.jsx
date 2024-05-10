@@ -7,6 +7,10 @@ import Error from "./Error/Error";
 import SignUp from "../Outlets/SignUp";
 import LogIn from "../Outlets/LogIn";
 import Services from "../Outlets/Services";
+import Private from "./Private";
+import AddService from "../Outlets/AddService";
+import ManageService from "../Outlets/ManageService";
+import ServiceToDo from "../Outlets/ServiceToDo";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +40,18 @@ const routes = createBrowserRouter([
       {
         path: "/logIn",
         element: <LogIn />,
+      },
+      {
+        path: '/addService',
+        element: <Private><AddService /></Private>
+      },
+      {
+        path: '/manageService',
+        element: <Private><ManageService /></Private>
+      },
+      {
+        path: '/servicesToDo',
+        element: <Private><ServiceToDo /></Private>
       },
     ],
   },

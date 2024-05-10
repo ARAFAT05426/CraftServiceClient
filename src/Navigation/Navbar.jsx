@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav
       id="navBar"
-      className="bg-base-200 bg-opacity-70 h-16 backdrop-blur-2xl px-2 md:px-16 lg:px-28 shadow-xl z-50"
+      className="bg-base-200 w-full bg-opacity-70 h-16 px-2 md:px-16 lg:px-28 shadow-xl z-50"
     >
       {/* Left Area */}
       <div className="flex items-center gap-1">
