@@ -38,7 +38,6 @@ const SignUp = () => {
           },
         }
       );
-      // Exit function early if password validation fails
     }
     createUser(email, pass)
       .then(() => {

@@ -6,15 +6,53 @@ import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
-
+import toast from "react-hot-toast";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate()
-  const {user, signUser} = useCallContext()
-  const onSubmit = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const { signUser } = useCallContext();
+  const onSubmit = (data, e) => {
+    const { email, pass } = data;
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
+      return toast.error(
+        "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long",
+        {
+          position: "top-center",
+          style: {
+            backgroundColor: "#dc3545",
+            color: "white",
+            fontSize: "13px",
+          },
+        }
+      );
+    }
+    signUser(email, pass)
+      .then(() => {
+        e.target.reset();
+        navigate(location?.state || "/");
+        toast.success("Welcome To KraftFix", {
+          position: "top-center",
+          style: {
+            backgroundColor: "#007bff",
+            color: "white",
+          },
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        const errorMessage =
+          err.message || "An error occurred. Please try again."; // Default error message
+        toast.error(errorMessage, {
+          position: "top-center",
+          style: {
+            backgroundColor: "#dc3545", // Red color for error
+            color: "white",
+          },
+        });
+      });
   };
+
   const handleSocialSignIn = (method) => {
     method()
       .then(() => {
@@ -63,11 +101,7 @@ const LogIn = () => {
               </Fade>
             </form>
             <Fade direction="up" triggerOnce delay={900}>
-              <BtnPrimary
-                title={"Log In"}
-                cStyle={" w-full"}
-                form={"logIn"}
-              />
+              <BtnPrimary title={"Log In"} cStyle={" w-full"} form={"logIn"} />
             </Fade>
             <Fade direction="up" triggerOnce delay={1100}>
               <div className="text-center">
@@ -91,7 +125,10 @@ const LogIn = () => {
             </Fade>
             <Fade direction="up" triggerOnce delay={1500}>
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
-                <button onClick={() =>handleSocialSignIn()} className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black">
+                <button
+                  onClick={() => handleSocialSignIn()}
+                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black"
+                >
                   <img
                     className="w-[11%]"
                     src="/resources/googleIcon.png"
@@ -99,7 +136,10 @@ const LogIn = () => {
                   />
                   Log In With Google
                 </button>
-                <button onClick={() =>handleSocialSignIn()} className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white">
+                <button
+                  onClick={() => handleSocialSignIn()}
+                  className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white"
+                >
                   <FaGithub className="text-4xl" />
                   Log In With Github
                 </button>
