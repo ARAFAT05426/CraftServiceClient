@@ -10,7 +10,7 @@ const useRefetch = (url) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${import.meta.env.VITE_API}${url}`);
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);

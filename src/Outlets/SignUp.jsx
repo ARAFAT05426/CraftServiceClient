@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { useEffect } from "react";
 const SignUp = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
-  const { user, createUser, updateUser, loading } = useCallContext();
+  const { user, createUser, updateUser, loading, signUserWithGoogle } = useCallContext();
   const {
     register,
     handleSubmit,
@@ -63,6 +63,15 @@ const SignUp = () => {
         });
       });
   };
+  const handleSocialSignIn = (method) => {
+    method()
+      .then(() => {
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   if (user || loading) {
     return;
   }
@@ -111,7 +120,7 @@ const SignUp = () => {
                 <InpEmail register={register} />
               </Fade>
               {/* URL Input */}
-              <Fade>
+              <Fade triggerOnce direction="up" delay={900}>
                 <InpText
                   title={"URL"}
                   name={"url"}
@@ -120,14 +129,37 @@ const SignUp = () => {
                 />
               </Fade>
               {/* PassWord Input */}
-              <Fade triggerOnce direction="up" delay={900}>
+              <Fade triggerOnce direction="up" delay={1100}>
                 <InpPassword register={register} errors={errors} />
               </Fade>
             </form>
-            <Fade triggerOnce direction="up" delay={1100}>
+            
+            <Fade triggerOnce direction="up" delay={1300}>
               <BtnPrimary title={"Sign Up"} cStyle={"w-full"} form={"signUp"} />
             </Fade>
-            <Fade triggerOnce direction="up" delay={1400}>
+            <Fade direction="up" triggerOnce delay={1500}>
+              <div className="flex items-center gap-3">
+                <hr className="border-base-content border-b w-full" />
+                <span className="font-bold text-xl">Or</span>
+                <hr className="border-base-content border-b w-full" />
+              </div>
+            </Fade>
+            <Fade direction="up" triggerOnce delay={1400}>
+              <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
+                <span
+                  onClick={() => handleSocialSignIn(signUserWithGoogle)}
+                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-2/5 text-nowrap text-xl font-bold text-black"
+                >
+                  <img
+                    className="w-[12%]"
+                    src="/resources/googleIcon.png"
+                    alt=""
+                  />
+                  Sign Up With Google
+                </span>
+              </div>
+            </Fade>
+            <Fade triggerOnce direction="up" delay={1500}>
               <div className="text-center">
                 <p className="font-semibold cursor-pointer transition-all">
                   Already have an account?

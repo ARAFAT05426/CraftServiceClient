@@ -96,7 +96,7 @@ const About = () => {
             </p>
           </div>
           <div>
-            <div className="flex justify-between items-center rounded-full border border-white w-full p-5 ">
+            <div className="flex justify-between items-center gap-5 w-full p-5 ">
               <div className="flex flex-col items-end space-y-2">
                 <img
                   className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out h-20 sm:h-32 xl:h-40 w-20 sm:w-32 xl:w-40 border border-white"

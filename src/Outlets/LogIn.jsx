@@ -8,10 +8,12 @@ import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
   const { user, signUser, loading, signUserWithGoogle } = useCallContext();
   useEffect(() => {
     if (user) {
@@ -59,15 +61,21 @@ const LogIn = () => {
       });
   };
 
-  const handleSocialSignIn = (method) => {
-    method()
-      .then(() => {
-        navigate(location?.state || "/");
-      })
-      .catch((err) => {
-        console.log(err);
+  const handleSocialSignIn = async (method) => {
+    try {
+      await method(); // Perform social sign-in action
+      const response = await axiosSecure.post("/token", {
+        email: user?.email
       });
+      // Handle successful response if needed
+      navigate(location?.state || "/");
+    } catch (error) {
+      console.error("Error during social sign-in or token request:", error);
+      // Handle error as needed, e.g., displaying a message to the user
+      toast.error("An error occurred. Please try again.");
+    }
   };
+  
   if (user || loading) {
     return;
   }
@@ -136,22 +144,15 @@ const LogIn = () => {
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
                 <span
                   onClick={() => handleSocialSignIn(signUserWithGoogle)}
-                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-4/5 text-nowrap font-bold text-black"
+                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-2/5 text-nowrap text-xl font-bold text-black"
                 >
                   <img
-                    className="w-[7%]"
+                    className="w-[12%]"
                     src="/resources/googleIcon.png"
                     alt=""
                   />
-                  Log In With Google
+                  Continue With Google
                 </span>
-                {/* <button
-                  onClick={() => handleSocialSignIn()}
-                  className="px-5 py-3 h-14 bg-black rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-white"
-                >
-                  <FaGithub className="text-4xl" />
-                  Log In With Github
-                </button> */}
               </div>
             </Fade>
           </div>
