@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
+import useCallContext from "../Hooks/useCallContext";
 
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate()
+  const {user, signUser} = useCallContext()
   const onSubmit = (data) => {
     console.log(data);
   };
