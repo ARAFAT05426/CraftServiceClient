@@ -4,9 +4,9 @@ import Home from "../Outlets/Home";
 import About from "../Outlets/About";
 import Contact from "../Outlets/Contact";
 import Error from "./Error/Error";
-import Form from "../Outlets/Form";
 import SignUp from "../Outlets/SignUp";
 import LogIn from "../Outlets/LogIn";
+import Services from "../Outlets/Services";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -18,16 +18,16 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/services',
+        element: <Services />
+      },
+      {
         path: "/about",
         element: <About />,
       },
       {
         path: "/contact",
         element: <Contact />,
-      },
-      {
-        path: "/form",
-        element: <Form />,
       },
       {
         path: "/signUp",

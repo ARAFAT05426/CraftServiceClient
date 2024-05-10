@@ -1,51 +1,56 @@
-/* BtnPrimary Starts */
 .primary {
-    font-size: 17px;
-    background: transparent;
-    border: 2px solid #000;
-    border-radius: 3px;
-    border-bottom: 0px; 
-    font-weight: 600;
-    padding: 1em 1.5em;
-    text-transform: uppercase;
-    position: relative;
-    transition: 0.5s ease;
-    cursor: pointer;
-  }
-  
-  .primary::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #000000;
-    transition: 0.5s ease;
-  }
-  
-  .primary:hover {
-    transition-delay: 0.5s;
-  }
-  
-  .primary:hover::before {
-    width: 100%;
-  }
-  
-  .primary::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    background-color: #000000;
-    transition: 0.4s ease;
-    z-index: -1;
-  }
-  
-  .primary:hover::after {
-    height: 100%;
-    transition-delay: 0.4s;
-  }
-/* BtnPrimary Ends */
+  /* Dark mode text color */
+  font-size: 17px;/* Border color for both modes */
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.1s;
+}
+
+.primary:active {
+  box-shadow: 0px 2px 0px #2980b9; /* Adjusted box shadow for click effect */
+  position: relative;
+  top: 2px;
+}
+.secondary {
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.7em 2em;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.secondary:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  z-index: -1;
+}
+
+.secondary:hover, .secondary:focus {
+  color: white;
+}
+
+.secondary:hover:before, .secondary:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.secondary:active {
+  transform: scale(0.9);
+}

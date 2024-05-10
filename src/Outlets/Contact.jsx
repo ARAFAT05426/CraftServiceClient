@@ -95,7 +95,7 @@ const Contact = () => {
                   rows="10"
                 ></textarea>
                 <BtnPrimary
-                  cStyle={"w-full text-black hover:text-white mt-5 z-10"}
+                  cStyle={"w-full mt-5 z-10"}
                   title={"Submit"}
                 />
               </div>

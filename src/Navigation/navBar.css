@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
+  width: 25px;
   height: 20px;
   transition: all 0.3s ease;
 }
@@ -55,14 +55,8 @@
   transition: all 0.4s ease; /* Smooth transition for color and border changes */
 }
 
-/* Hover Effect */
-.cBtn:hover {
-  border-bottom-color:  #000; /* Border color for left and bottom */
-}
-
 /* Active Link Styles */
 .cBtn.active {
-  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   color: aliceblue;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background color and box-shadow */

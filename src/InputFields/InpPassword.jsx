@@ -7,7 +7,7 @@ const InpPassword = ({ register, errors }) => {
 
   return (
     <div className="flex flex-col space-y-1">
-      <h1 className={`pl-1 font-bold text-lg text-white`}>Password</h1>
+      <h1 className={`pl-1 font-bold text-lg text-text`}>Password</h1>
       <div className="flex items-center bg-base-200 focus-within:outline rounded outline-base-content outline-2">
         <input
           className={`px-7 py-3 w-full font-semibold rounded-sm outline-none bg-base-200 ${
@@ -17,7 +17,7 @@ const InpPassword = ({ register, errors }) => {
           type={hide ? "text" : "password"}
           {...register("pass", { required: true })}
         />
-        <button
+        <span 
           onClick={() => setHide(!hide)}
           className="pr-5 py-2 cursor-pointer"
         >
@@ -26,7 +26,7 @@ const InpPassword = ({ register, errors }) => {
           ) : (
             <AiOutlineEye className="text-3xl" />
           )}
-        </button>
+        </span>
       </div>
       {/* Display error message if exists */}
       {errors && (

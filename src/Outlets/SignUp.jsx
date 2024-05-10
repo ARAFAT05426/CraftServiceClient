@@ -1,22 +1,72 @@
 import { Fade } from "react-awesome-reveal";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpText from "../InputFields/InpText";
 import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
-
+import useCallContext from "../Hooks/useCallContext";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 const SignUp = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
-  
-  const { register, handleSubmit , formState: { errors } } = useForm();
-  const onSubmit = (data) =>{
-    const { pass } = data;
-    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
-      return console.log("passValue error");
+  const { user, createUser, updateUser, loading } = useCallContext();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
     }
+  }, [user, navigate]);
+  const onSubmit = (data, e) => {
+    const { name, email, url, pass } = data;
+    console.log(data);
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
+      return toast.error(
+        "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long",
+        {
+          position: "top-center",
+          style: {
+            backgroundColor: "#dc3545", // Red color for error
+            color: "white",
+            fontSize: "13px",
+          },
+        }
+      );
+      // Exit function early if password validation fails
+    }
+    createUser(email, pass)
+      .then(() => {
+        e.target.reset();
+        updateUser(name, url);
+        navigate(location?.state || "/");
+        toast.success("Welcome To KraftFix", {
+          position: "top-center",
+          style: {
+            backgroundColor: "#007bff",
+            color: "white",
+          },
+        });
+      })
+      .catch((err) => {
+        // Display error toast with the error message
+        toast.error(err.message, {
+          position: "top-center",
+          style: {
+            backgroundColor: "#dc3545", // Red color for error
+            color: "white",
+          },
+        });
+      });
   };
-  
+  if (user || loading) {
+    return;
+  }
   return (
     <section className="pt-20">
       <div
@@ -32,38 +82,60 @@ const SignUp = () => {
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${img})`,
             }}
           >
-            <Fade direction="up">
+            <Fade triggerOnce direction="up">
               <img className="w-1/5 mx-auto" src="/resources/logo.png" alt="" />
             </Fade>
-            <Fade direction="up" delay={300}>
+            <Fade triggerOnce direction="up" delay={300}>
               <p className="font-semibold max-w-lg text-center text-white">
-                Please enter your details to sign up and be part of our great community.
+                Please enter your details to sign up and be part of our great
+                community.
               </p>
             </Fade>
           </div>
           <div className="bg-white/35 backdrop-blur-md flex flex-col justify-center py-20 px-7 space-y-4">
-            <form onSubmit={handleSubmit(onSubmit)} id="signUp" className="space-y-3">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              id="signUp"
+              className="space-y-3"
+            >
               {/* Name Input */}
-              <Fade direction="up" delay={500}>
-                <InpText title={"Name"} hColor={"text-white"} name={"name"} register={register} />
+              <Fade triggerOnce direction="up" delay={500}>
+                <InpText
+                  title={"Name"}
+                  name={"name"}
+                  register={register}
+                  id={"name"}
+                />
               </Fade>
               {/* Email Input */}
-              <Fade direction="up" delay={700}>
+              <Fade triggerOnce direction="up" delay={700}>
                 <InpEmail register={register} />
               </Fade>
+              {/* URL Input */}
+              <Fade>
+                <InpText
+                  title={"URL"}
+                  name={"url"}
+                  register={register}
+                  id={"url"}
+                />
+              </Fade>
               {/* PassWord Input */}
-              <Fade direction="up" delay={900}>
+              <Fade triggerOnce direction="up" delay={900}>
                 <InpPassword register={register} errors={errors} />
               </Fade>
             </form>
-            <Fade direction="up" delay={1100}>
-              <BtnPrimary title={"Sign Up"} cStyle={"text-black hover:text-white w-full"} form={"signUp"} />
+            <Fade triggerOnce direction="up" delay={1100}>
+              <BtnPrimary title={"Sign Up"} cStyle={"w-full"} form={"signUp"} />
             </Fade>
-            <Fade direction="up" delay={1400}>
+            <Fade triggerOnce direction="up" delay={1400}>
               <div className="text-center">
                 <p className="font-semibold cursor-pointer transition-all">
                   Already have an account?
-                  <Link to={"/logIn"} className="text-blue-800 hover:underline ml-3">
+                  <Link
+                    to={"/logIn"}
+                    className="text-blue-800 hover:underline ml-3"
+                  >
                     Log In
                   </Link>
                 </p>

@@ -6,7 +6,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Fade, Flip } from "react-awesome-reveal";
 import { useState } from "react";
-import BtnPrimary from "../Buttons/BtnPrimary";
+import BtnSecondary from "../Buttons/BtnSecondary";
 
 const Banner = () => {
   const [hovered, setHovered] = useState(false);
@@ -41,7 +41,7 @@ const Banner = () => {
                   </h1>
                 </Fade>
                 <Fade direction="up" delay={600} className="-ml-4">
-                  <p className="text-sm lg:text-base bg-white bg-opacity-15 rounded-lg backdrop-blur-sm max-w-4xl px-5 py-3 ml-3 border-b-1 border-r-1 cursor-text">
+                  <p className="text-sm lg:text-base bg-primary bg-opacity-15 rounded-lg  backdrop-blur-sm max-w-4xl px-5 py-3 ml-3 border-b-1 border-r-1 cursor-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Praesentium tempore veniam tempora esse aliquam ad hic
                     distinctio corporis ipsa eos in laboriosam doloremque quae,
@@ -53,10 +53,7 @@ const Banner = () => {
                   </p>
                 </Fade>
                 <Flip direction="horizontal" delay={1000}>
-                  <BtnPrimary
-                    title={"hello Swiper"}
-                    cStyle={"text-black hover:text-white"}
-                  />
+                  <BtnSecondary title={"Hello Swiper"} />
                 </Flip>
               </div>
             </div>
@@ -67,7 +64,7 @@ const Banner = () => {
             id="prev"
             className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
-            } bg-black bg-opacity-65 absolute top-1/2 left-0 z-20 rounded-r transition duration-500`}
+            } bg-primary bg-opacity-65 absolute top-1/2 left-0 z-20 rounded-r transition duration-500`}
           >
             <IoIosArrowRoundBack className="text-3xl text-white" />
           </button>
@@ -75,7 +72,7 @@ const Banner = () => {
             id="next"
             className={`px-3 py-1 ${
               hovered ? "opacity-100" : "opacity-0"
-            } bg-black bg-opacity-65 absolute top-1/2 right-0 z-20 rounded-l transition duration-500`}
+            } bg-primary bg-opacity-65 absolute top-1/2 right-0 z-20 rounded-l transition duration-500`}
           >
             <IoIosArrowRoundForward className="text-3xl text-white" />
           </button>

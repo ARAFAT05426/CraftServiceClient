@@ -6,16 +6,18 @@ import "./navBar.css";
 import ThemeToggler from "./ThemeToggler";
 import Links from "./Links";
 import UserDropdown from "./UserDropdown";
+import useCallContext from "../Hooks/useCallContext";
 const Navbar = () => {
   const [act, setAct] = useState(false);
+  const { user } = useCallContext();
   return (
     <nav
       id="navBar"
-      className="bg-base-300 bg-opacity-70 h-16 backdrop-blur-2xl px-2 md:px-16 lg:px-28 shadow-xl z-50"
+      className="bg-base-200 bg-opacity-70 h-16 backdrop-blur-2xl px-2 md:px-16 lg:px-28 shadow-xl z-50"
     >
       {/* Left Area */}
       <div className="flex items-center gap-1">
-      <div
+        <div
           id="toggle"
           className="flex lg:hidden"
           onClick={() => setAct(!act)}
@@ -27,7 +29,7 @@ const Navbar = () => {
           </div>
         </div>
         <Link to="/">
-          <img className="w-24" src={logo} alt="" />{" "}
+          <img className="w-36" src={logo} alt="" />
           {/* Adjust logo size if needed */}
         </Link>
       </div>
@@ -49,12 +51,13 @@ const Navbar = () => {
       {/* Right Area */}
       <div className="flex items-center gap-2 lg:gap-4">
         <ThemeToggler />
-        <UserDropdown />
-        <Link to={"/signUp"}>
-          <FiUserPlus className=" text-2xl lg:text-4xl" />
-        </Link>
-        {/* Toggle Button */}
-       
+        {user ? (
+          <UserDropdown />
+        ) : (
+          <Link to={"/signUp"}>
+            <FiUserPlus className=" text-2xl lg:text-4xl" />
+          </Link>
+        )}
       </div>
     </nav>
   );

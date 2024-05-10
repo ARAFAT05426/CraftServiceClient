@@ -40,7 +40,7 @@ const LogIn = () => {
             <Fade direction="up">
               <img className="w-1/5 mx-auto" src="/resources/logo.png" alt="" />
             </Fade>
-            <Fade direction="up" delay={300}>
+            <Fade direction="up" triggerOnce delay={300}>
               <p className="font-semibold max-w-lg text-center text-white">
                 Please enter your details to sign up and be part of our great
                 community.
@@ -53,21 +53,21 @@ const LogIn = () => {
               id="logIn"
               className="space-y-3"
             >
-              <Fade direction="up" delay={500}>
+              <Fade direction="up" triggerOnce delay={500}>
                 <InpEmail register={register} />
               </Fade>
-              <Fade direction="up" delay={700}>
+              <Fade direction="up" triggerOnce delay={700}>
                 <InpPassword register={register} />
               </Fade>
             </form>
-            <Fade direction="up" delay={900}>
+            <Fade direction="up" triggerOnce delay={900}>
               <BtnPrimary
                 title={"Log In"}
-                cStyle={"text-black hover:text-white w-full"}
+                cStyle={" w-full"}
                 form={"logIn"}
               />
             </Fade>
-            <Fade direction="up" delay={1100}>
+            <Fade direction="up" triggerOnce delay={1100}>
               <div className="text-center">
                 <p className="font-semibold cursor-pointer transition-all">
                   New Here?
@@ -80,14 +80,14 @@ const LogIn = () => {
                 </p>
               </div>
             </Fade>
-            <Fade direction="up" delay={1300}>
+            <Fade direction="up" triggerOnce delay={1300}>
               <div className="flex items-center gap-3">
                 <hr className="border-base-content border-b w-full" />
                 <span className="font-bold text-xl">Or</span>
                 <hr className="border-base-content border-b w-full" />
               </div>
             </Fade>
-            <Fade direction="up" delay={1500}>
+            <Fade direction="up" triggerOnce delay={1500}>
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
                 <button onClick={() =>handleSocialSignIn()} className="px-5 py-3 h-14 bg-white rounded-md flex items-center gap-2 justify-center w-4/5 lg:w-2/5 text-nowrap font-bold text-black">
                   <img
