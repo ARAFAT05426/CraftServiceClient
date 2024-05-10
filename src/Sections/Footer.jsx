@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from '/resources/logo.png'
 const Footer = () => {
   return (
-    <div className="bg-base-100 rounded text-base-content">
+    <div className="bg-base-200 rounded text-base-content">
       <div className="p-4 flex flex-col lg:flex-row justify-around items-center sm:p-12">
         {/* Left_Area */}
         <div className="text-center">
@@ -40,7 +40,7 @@ const Footer = () => {
           </Fade>
         </div>
       </div>
-      <div className="bg-base-200">
+      <div className="bg-base-300">
         <Fade>
           <div className="p-3 text-sm flex items-center justify-center max-w-lg mx-auto gap-3">
             <a

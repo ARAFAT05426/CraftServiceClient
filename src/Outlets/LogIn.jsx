@@ -1,6 +1,5 @@
 import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
-// import { FaGithub } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
@@ -8,12 +7,10 @@ import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const axiosSecure = useAxiosSecure();
   const { user, signUser, loading, signUserWithGoogle } = useCallContext();
   useEffect(() => {
     if (user) {
@@ -63,15 +60,17 @@ const LogIn = () => {
 
   const handleSocialSignIn = async (method) => {
     try {
-      await method(); // Perform social sign-in action
-      const response = await axiosSecure.post("/token", {
-        email: user?.email
-      });
-      // Handle successful response if needed
+      await method();
+      toast.success("Welcome To KraftFix", {
+        position: "top-center",
+        style: {
+          backgroundColor: "#007bff",
+          color: "white",
+        },
+      })
       navigate(location?.state || "/");
     } catch (error) {
       console.error("Error during social sign-in or token request:", error);
-      // Handle error as needed, e.g., displaying a message to the user
       toast.error("An error occurred. Please try again.");
     }
   };

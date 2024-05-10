@@ -25,7 +25,6 @@ const SignUp = () => {
   }, [user, navigate]);
   const onSubmit = (data, e) => {
     const { name, email, url, pass } = data;
-    console.log(data);
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
       return toast.error(
         "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long",

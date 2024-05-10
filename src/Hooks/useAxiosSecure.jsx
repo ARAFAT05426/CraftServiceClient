@@ -14,8 +14,8 @@ const useAxiosSecure = (signOutUser) => { // Inject signOutUser dependency
     (error) => {
       console.log("Error from axios interceptor:", error.response);
       if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-        signOutUser(); // Call signOutUser passed from outside
-        navigate("/login"); // Navigate to the login page
+        signOutUser();
+        navigate("/login");
       }
       return Promise.reject(error);
     }

@@ -11,8 +11,8 @@ const UserDropdown = () => {
     setIsOpen(!isOpen);
   };
   const { user, signOutUSer} = useCallContext()
-  const handleLogOut = () => {
-    signOutUSer();
+  const handleLogOut = async() => {
+    await signOutUSer();
     return toast.success(
       "we will be waiting",
       {
