@@ -1,35 +1,60 @@
 import PropTypes from "prop-types";
 import { MdOutlineWrongLocation } from "react-icons/md";
 import { IoPricetagsOutline } from "react-icons/io5";
-import './card.css'
+import "./card.css";
+import BtnSecondary from "../Buttons/BtnSecondary";
+import { Link } from "react-router-dom";
+// import { Fade } from "react-awesome-reveal";
 const ServiceCard = ({ data }) => {
-  const { imageUrl, serviceName, description, serviceArea, price } = data;
-
+  const {
+    _id,
+    imgURL,
+    serviceName,
+    description,
+    serviceArea,
+    price,
+    providerImage,
+    providerName,
+  } = data;
   return (
-    <div className="px-8 py-5 bg-primary/75 border border-primary rounded space-y-3 relative c">
+    <div className="px-8 py-5 bg-base-200 border border-primary/35 rounded space-y-3 relative c shadow-lg hover:shadow-xl">
       <div className="relative overflow-hidden rounded transition duration-300">
-        <img className="w-full h-60 object-cover" src={imageUrl} alt={serviceName} />
+        <img
+          className="w-full h-60 object-cover"
+          src={imgURL}
+          alt={serviceName}
+        />
         <div className="absolute inset-0 bg-black opacity-75 transition duration-500 cOverlay"></div>
       </div>
       <div className="mt-3">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl text-base-200 font-bold p-1">{serviceName}</h1>
+          <h1 className="text-3xl text-primary font-bold p-1">{serviceName}</h1>
           <div className="flex items-center gap-5">
-            <h1 className="px-3 py-1 bg-accent/50 text-base-100 backdrop-blur-xl w-fit rounded-full flex items-center gap-1 cursor-pointer">
-              <MdOutlineWrongLocation className="p-1 text-2xl" />
-              <span className="text-xs font-bold hover:underline transition">
+            <h1 className="px-3 py-1 bg-accent/25 text-base-100 backdrop-blur-xl w-fit rounded-full flex items-center gap-1 cursor-pointer">
+              <MdOutlineWrongLocation className="p-1 text-2xl text-secondary" />
+              <span className="text-xs font-bold hover:underline text-base-content transition">
                 {serviceArea}
               </span>
             </h1>
-            <h1 className="px-3 py-1 bg-accent/50 text-base-100 backdrop-blur-xl w-fit rounded-full flex items-center gap-1 cursor-pointer">
-              <IoPricetagsOutline className="p-1 text-2xl" />
-              <span className="text-sm font-bold hover:underline transition">
+            <h1 className="px-3 py-1 bg-accent/25 text-base-100 backdrop-blur-xl w-fit rounded-full flex items-center gap-1 cursor-pointer">
+              <IoPricetagsOutline className="p-1 text-2xl text-secondary" />
+              <span className="text-sm font-bold hover:underline text-base-content transition">
                 {price}
               </span>
             </h1>
           </div>
         </div>
-        <p className="text-gray-500">{description.slice(0, 100)}....</p>
+        <p className="text-base-content">{description.slice(0, 100)}....</p>
+      </div>
+      <hr className="border-b-base-content" />
+      <div className="flex items-center justify-between">
+        <div className=" flex items-center gap-1">
+          <img className="w-7 h-7 rounded-full" src={providerImage} alt="" />
+          <span className="font-bold text-lg hover:underline transition-all duration-500">{providerName}</span>
+        </div>
+        <Link to={`/serviceDetails/${_id}`} className="cardBtn opacity-0">
+          <BtnSecondary title={'View Details'} />
+        </Link>
       </div>
     </div>
   );

@@ -5,8 +5,9 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Fade, Flip } from "react-awesome-reveal";
-import { useState } from "react";
 import BtnSecondary from "../Buttons/BtnSecondary";
+import { Parallax } from "react-parallax";
+import { useState } from "react";
 
 const Banner = () => {
   const [hovered, setHovered] = useState(false);
@@ -25,16 +26,25 @@ const Banner = () => {
       onMouseOut={() => setHovered(false)}
       className="h-nav_h_minus overflow-hidden"
     >
-      <Swiper modules={[Autoplay, Navigation, Pagination]} className="mySwiper relative" pagination={{ dynamicBullets: true }} loop={true}
-       autoplay={{ delay: 5000, }} navigation={{ nextEl: "#next", prevEl: "#prev" }} grabCursor={false} style={{ "--swiper-pagination-color": "#000" }}
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        className="mySwiper relative"
+        pagination={{ dynamicBullets: true }}
+        loop={true}
+        autoplay={{ delay: 5000 }}
+        navigation={{ nextEl: "#next", prevEl: "#prev" }}
+        grabCursor={false}
+        style={{ "--swiper-pagination-color": "#000" }}
       >
         {images.map((item, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="bg-no-repeat bg-cover bg-center relative"
-              style={{ backgroundImage: `url(${item})` }}
+            <Parallax
+              bgImage={item}
+              bgImageAlt="background"
+              strength={500}
+              style={{ height: "100vh" }}
             >
-              <div className="px-10 lg:px-32 flex flex-col space-y-3 justify-center h-lvh my-auto">
+              <div className="px-10 lg:px-32 flex flex-col space-y-3 justify-center h-96 my-auto">
                 <Fade direction="down" duration={1000}>
                   <h1 className="text-5xl lg:text-7xl font-semibold text-white">
                     Hello Swiper
@@ -56,7 +66,7 @@ const Banner = () => {
                   <BtnSecondary title={"Hello Swiper"} />
                 </Flip>
               </div>
-            </div>
+            </Parallax>
           </SwiperSlide>
         ))}
         <div className="flex justify-between items-center">

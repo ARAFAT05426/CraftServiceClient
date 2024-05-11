@@ -164,6 +164,7 @@ const SignUp = () => {
                   Already have an account?
                   <Link
                     to={"/logIn"}
+                    state={location.state}
                     className="text-blue-800 hover:underline ml-3"
                   >
                     Log In

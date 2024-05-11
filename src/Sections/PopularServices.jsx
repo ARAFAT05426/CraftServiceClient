@@ -3,7 +3,6 @@ import useRefetch from "../Hooks/useRefetch";
 
 const PopularServices = () => {
   const { data } = useRefetch("/services");
-  console.log(data);
   return (
     <section className="py-10">
       <div>

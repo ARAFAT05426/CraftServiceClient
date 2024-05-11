@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpPassword from "../InputFields/InpPassword";
@@ -11,6 +11,7 @@ const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const location = useLocation()
   const { user, signUser, loading, signUserWithGoogle } = useCallContext();
   useEffect(() => {
     if (user) {
@@ -125,6 +126,7 @@ const LogIn = () => {
                   New Here?
                   <Link
                     to={"/signUp"}
+                    state={location.state}
                     className="text-blue-800 hover:underline ml-3"
                   >
                     Sign Up

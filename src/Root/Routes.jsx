@@ -11,6 +11,7 @@ import Private from "./Private";
 import AddService from "../Outlets/AddService";
 import ManageService from "../Outlets/ManageService";
 import ServiceToDo from "../Outlets/ServiceToDo";
+import ServiceDetails from "../Outlets/ServiceDetails";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +54,11 @@ const routes = createBrowserRouter([
         path: '/servicesToDo',
         element: <Private><ServiceToDo /></Private>
       },
+      {
+        path: '/serviceDetails/:id',
+        element: <ServiceDetails />,
+        loader: async({params}) => await fetch(`${import.meta.env.VITE_API}/services/${params.id}`)
+      }
     ],
   },
 ]);
