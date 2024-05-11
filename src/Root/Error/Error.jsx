@@ -23,11 +23,11 @@ const Error = () => {
             homepage.{" "}
           </p>
         </Fade>
-        <div className="px-5 py-3 flex justify-around items-center w-4/5 lg:w-1/2 z-10">
+        <div className="px-5 py-3 flex items-center z-10 gap-3">
           <Fade direction="left" delay={600}>
             <button
               onClick={() => navigate(-1)}
-              className="px-5 lg:px-7 bg-transparent py-4 font-semibold border-2 border-t-transparent border-l-transparent text-black border-black"
+              className="px-5 lg:px-7 bg-transparent py-3 font-semibold border-2 border-t-transparent border-l-transparent text-black border-black"
             >
               Go back
             </button>
@@ -35,7 +35,7 @@ const Error = () => {
           <Fade direction="left" delay={800}>
             <Link to={"/"}>
               <BtnPrimary
-                text={"Homepage"}
+                title={"Back To Homepage"}
                 cStyle={"text-black hover:text-white"}
               />
             </Link>

@@ -1,3 +1,4 @@
+import ServiceCard from "../CARD/ServiceCard";
 import useRefetch from "../Hooks/useRefetch";
 
 const PopularServices = () => {
@@ -17,6 +18,12 @@ const PopularServices = () => {
           </p>
           <hr className="border-primary border-b-[1px] rounded-3xl w-1/4" />
         </div>
+      </div>
+      {/* SERVICES */}
+      <div className="grid grid-cols-3 px-32 pt-10 gap-7">
+        {
+            data?.map((item, inx) => <ServiceCard key={inx} data={item} />)
+        }
       </div>
     </section>
   );

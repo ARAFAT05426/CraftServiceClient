@@ -1,0 +1,6 @@
+.c{
+    cursor: pointer;
+}
+.c:hover .cOverlay{
+    opacity: 0;
+}
