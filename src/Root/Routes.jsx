@@ -12,6 +12,7 @@ import AddService from "../Outlets/AddService";
 import ManageService from "../Outlets/ManageService";
 import ServiceToDo from "../Outlets/ServiceToDo";
 import ServiceDetails from "../Outlets/ServiceDetails";
+import BookedServices from "../Outlets/BookedServices";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
       {
         path: "/logIn",
         element: <LogIn />,
+      },
+      {
+        path: '/bookedServices',
+        element: <Private><BookedServices /></Private>
       },
       {
         path: '/addService',

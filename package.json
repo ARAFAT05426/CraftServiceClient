@@ -26,6 +26,7 @@
     "react-parallax": "^3.5.1",
     "react-router-dom": "^6.23.0",
     "react-simple-typewriter": "^5.0.1",
+    "react-sweetalert2": "^0.6.0",
     "sort-by": "^0.0.2",
     "swiper": "^11.1.1"
   },

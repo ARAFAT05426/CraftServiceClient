@@ -8,6 +8,7 @@ import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import Loader from "../Root/Loader/Loader";
 const SignUp = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { user, createUser, updateUser, loading, signUserWithGoogle } = useCallContext();
@@ -72,7 +73,7 @@ const SignUp = () => {
       });
   };
   if (user || loading) {
-    return;
+    return <Loader />
   }
   return (
     <section className="pt-20">

@@ -24,7 +24,7 @@ const Banner = () => {
     <section
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
-      className="h-nav_h_minus overflow-hidden"
+      className="pt-20 overflow-hidden"
     >
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
@@ -42,7 +42,7 @@ const Banner = () => {
               bgImage={item}
               className="flex items-center"
               bgImageAlt="background"
-              strength={500}
+              strength={1000}
               style={{ height: "100vh" }}
             >
               <div className="px-10 lg:px-32 flex flex-col space-y-3 justify-center h-96 my-auto">

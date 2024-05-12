@@ -93,6 +93,7 @@ const ServiceDetails = () => {
               </div>
             </div>
             <hr className="border-b-secondary border-b opacity-50 border-opacity-50" />
+            <h1 className="text-2xl font-semibold">Service Provider:</h1>
             <div className="flex items-center gap-3">
               <img
                 className="w-12 h-12 rounded-full"

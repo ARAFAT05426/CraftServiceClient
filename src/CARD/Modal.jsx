@@ -8,11 +8,14 @@ import useCallContext from "../Hooks/useCallContext";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 const Modal = ({ data = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useCallContext();
   const {
+    _id,
     imgURL,
     serviceName,
     serviceArea,
@@ -20,10 +23,47 @@ const Modal = ({ data = {} }) => {
     providerName,
     providerEmail,
   } = data;
+  const axiosSecure = useAxiosSecure()
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  }
+  const onSubmit = async (data, e) => {
+    try {
+      // Define booking data
+      const bookingData = {
+        serviceId: _id,
+        serviceName,
+        serviceImage: imgURL,
+        providerEmail,
+        providerName,
+        price,
+        userName: user?.displayName,
+        userEmail: user?.email,
+        serviceDate: startDate,
+        instructions: data.instructions,
+        status: "pending",
+      };
+      const res = await axiosSecure.post('/bookings', bookingData);
+      setIsOpen(!isOpen)
+      toast.success("Booking Successfull", {
+        position: "top-center",
+        style: {
+          backgroundColor: "#007bff",
+          color: "white",
+        },
+      });
+      e.target.reset();
+      console.log(res.data);
+    } catch (error) {
+      console.error("An error occurred while processing your booking. Please try again later.", error);
+      toast.error("Failed to process booking. Please try again later.", {
+        position: "top-center",
+        style: {
+          backgroundColor: "#dc3545",
+          color: "white",
+        },
+      });
+    }
+  };
+  
   return (
     <div className="relative">
       <BtnPrimary
@@ -44,7 +84,7 @@ const Modal = ({ data = {} }) => {
             </div>
             <div className="px-4 lg:px-10 pb-4 lg:pb-10 w-[80vw] space-y-2 lg:space-y-5">
               <form
-              onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
                 id="book"
                 className="grid grid-cols-2 gap-x-5 gap-1 lg:gap-y-3"
               >
@@ -85,21 +125,16 @@ const Modal = ({ data = {} }) => {
                   />
                 </Fade>
                 {/* Date Picker */}
-                <Fade className="w-full z-20">
-                  <div className="w-full rounded space-y-1">
-                    <h1
-                      className={`pl-1 font-bold text-sm lg:text-lg text-text`}
-                    >
-                      Pick Your Date
-                    </h1>
-
-                    <DatePicker
-                      className="px-3 lg:px-5 py-1 lg:py-3 font-semibold text-xs lg:text-base border border-base-200 bg-base-200/75 rounded w-[35vw] lg:w-[38vw] cursor-pointer"
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                    />
-                  </div>
-                </Fade>
+                <div className="w-full rounded space-y-1 z-20">
+                  <h1 className={`pl-1 font-bold text-sm lg:text-lg text-text`}>
+                    Pick Your Date
+                  </h1>
+                  <DatePicker
+                    className="px-3 lg:px-5 py-1 lg:py-3 font-semibold text-xs lg:text-base border border-base-200 bg-base-200/75 rounded w-[35vw] lg:w-[38vw] cursor-pointer"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
+                </div>
                 <Fade className="w-full">
                   <InpDummy
                     title={"Price"}
@@ -113,20 +148,24 @@ const Modal = ({ data = {} }) => {
                   />
                 </Fade>
                 {/* Special Instruction */}
-                <Fade className="col-span-2">
+                <div className="col-span-2">
                   <h1 className={`pl-1 font-bold text-sm lg:text-lg text-text`}>
                     Special Instruction
                   </h1>
                   <textarea
                     className="w-full px-5 py-3 font-semibold bg-base-200"
                     placeholder="Special Instruction"
-                    {...register("instrction", { required: true })}
+                    {...register("instructions", { required: true })}
                     rows={4}
                   ></textarea>
-                </Fade>
+                </div>
               </form>
               <Fade>
-                <BtnPrimary form={'book'} title={"Purchase"} cStyle={"w-full"} />
+                <BtnPrimary
+                  form={"book"}
+                  title={"Purchase"}
+                  cStyle={"w-full"}
+                />
               </Fade>
             </div>
           </div>

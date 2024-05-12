@@ -39,11 +39,11 @@ const UserDropdown = () => {
           isOpen ? "h-auto py-5" : "h-0"
         }`}
       >
+        <NavLink className="font-semibold px-3 py-1" to={'/bookedServices'}>Booked Service</NavLink>
         <NavLink className="font-semibold px-3 py-1" to={'/addService'}>Add Service</NavLink>
         <NavLink className="font-semibold px-3 py-1" to={'/manageService'}>Manage Service</NavLink>
         <NavLink className="font-semibold px-3 py-1" to={'/servicesToDo'}>Services To Do</NavLink>
         <BtnPrimary click={handleLogOut} title={'Log Out'} cStyle={'w-4/5 mx-auto'} />
-        {/* <button onClick={} className={`text-gray-800 px-3  font-semibold`}>Log out</button> */}
       </div>
     </div>
   );

@@ -45,19 +45,19 @@ const Footer = () => {
           <div className="p-3 text-sm flex items-center justify-center max-w-lg mx-auto gap-3">
             <a
               href="#_"
-              className="p-3 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
+              className="p-2 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
             >
               <FaFacebook className="text-3xl" />
             </a>
             <a
               href="#_"
-              className="p-3 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
+              className="p-2 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
             >
               <FaTwitter className="text-3xl" />
             </a>
             <a
               href="#_"
-              className="p-3 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
+              className="p-2 transition duration-500 ease-in-out rounded-full hover:bg-secondary"
             >
               <FaInstagram className="text-3xl" />
             </a>

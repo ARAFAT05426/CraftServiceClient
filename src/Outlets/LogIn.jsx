@@ -7,6 +7,7 @@ import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import Loader from "../Root/Loader/Loader";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
@@ -48,11 +49,11 @@ const LogIn = () => {
       .catch((err) => {
         console.log(err);
         const errorMessage =
-          err.message || "An error occurred. Please try again."; // Default error message
+          err.message || "An error occurred. Please try again.";
         toast.error(errorMessage, {
           position: "top-center",
           style: {
-            backgroundColor: "#dc3545", // Red color for error
+            backgroundColor: "#dc3545",
             color: "white",
           },
         });
@@ -77,7 +78,7 @@ const LogIn = () => {
   };
   
   if (user || loading) {
-    return;
+    return <Loader />
   }
   return (
     <section className="pt-20">
