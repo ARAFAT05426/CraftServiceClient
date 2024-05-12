@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { MdOutlineWrongLocation } from "react-icons/md";
 import { IoPricetagsOutline } from "react-icons/io5";
-import "./card.css";
 import BtnSecondary from "../Buttons/BtnSecondary";
 import { Link } from "react-router-dom";
+import "./card.css";
 // import { Fade } from "react-awesome-reveal";
 const ServiceCard = ({ data }) => {
   const {

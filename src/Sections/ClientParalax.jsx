@@ -31,7 +31,7 @@ const ClientParalax = () => {
         <div className="flex items-center justify-between w-4/5 mx-auto py-10">
           {data.map((item, index) => (
             <div className="relative w-52" key={index}>
-              <h1 className="font-bold text-8xl font-sideHeading text-secondary">
+              <h1 className="font-bold text-8xl font-sideHeading text-secondary/75">
                 {item.number}
               </h1>
               <div className="absolute inset-0 w-fit mx-auto flex items-center justify-center">

@@ -56,7 +56,7 @@ const routes = createBrowserRouter([
       },
       {
         path: '/serviceDetails/:id',
-        element: <ServiceDetails />,
+        element: <Private><ServiceDetails /></Private>,
         loader: async({params}) => await fetch(`${import.meta.env.VITE_API}/services/${params.id}`)
       }
     ],

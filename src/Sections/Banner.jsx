@@ -40,6 +40,7 @@ const Banner = () => {
           <SwiperSlide key={index}>
             <Parallax
               bgImage={item}
+              className="flex items-center"
               bgImageAlt="background"
               strength={500}
               style={{ height: "100vh" }}
