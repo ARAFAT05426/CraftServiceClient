@@ -1,6 +1,7 @@
 import Banner from "../Sections/Banner";
 import ClientParalax from "../Sections/ClientParalax";
 import PopularServices from "../Sections/PopularServices";
+import WhyChooseUs from "../Sections/WhyChooseUs";
 
  const Home = () => {
     return (
@@ -8,6 +9,7 @@ import PopularServices from "../Sections/PopularServices";
             <Banner/>
             <PopularServices />
             <ClientParalax />
+            <WhyChooseUs />
         </section>
     );
 };

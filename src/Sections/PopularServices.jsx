@@ -1,3 +1,4 @@
+import { Flip } from "react-awesome-reveal";
 import ServiceCard from "../CARD/ServiceCard";
 import useRefetch from "../Hooks/useRefetch";
 
@@ -19,9 +20,9 @@ const PopularServices = () => {
         </div>
       </div>
       {/* SERVICES */}
-      <div className="grid grid-cols-3 px-32 pt-10 gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 lg:px-32 pt-10 gap-7">
         {
-            data?.map((item, inx) => <ServiceCard key={inx} data={item} />)
+            data?.map((item, inx) => <Flip direction="horizontal" key={inx}><ServiceCard  data={item} /></Flip>)
         }
       </div>
     </section>

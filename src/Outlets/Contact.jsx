@@ -1,8 +1,8 @@
 import { BiPhoneCall } from "react-icons/bi";
 import { IoChatbubbles } from "react-icons/io5";
 import { Fade, Flip } from "react-awesome-reveal"; // Import Fade animation from react-awesome-reveal
-import InpAny from "../InputFields/InpAny";
 import BtnPrimary from "../Buttons/BtnPrimary";
+import InpDummy from "../InputFields/InpDummy";
 
 const Contact = () => {
   const img = "https://source.unsplash.com/random/1920x1080";
@@ -87,8 +87,8 @@ const Contact = () => {
             </Fade>
             <Flip direction="horizontal" delay={300}> {/* Use Fade animation with "up" direction */}
               <div className="px-3 lg:px-20">
-                <InpAny title={"Name"} />
-                <InpAny title={"Email"} />
+                <InpDummy title={"Name"} />
+                <InpDummy title={"Email"} />
                 <textarea
                   className="border px-5 py-3 w-full mt-6 font-semibold bg-base-200"
                   placeholder="Describe your problem"
