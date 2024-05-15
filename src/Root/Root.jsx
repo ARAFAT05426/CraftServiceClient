@@ -15,7 +15,7 @@ const Root = () => {
     <main className="text-text font-common">
       <Toaster />
       <Navbar />
-      <section className="min-h-nav_h_minus">
+      <section className="">
         <Outlet/>
       </section>
       <Footer />

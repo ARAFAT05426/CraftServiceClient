@@ -6,19 +6,14 @@ import InpPassword from "../InputFields/InpPassword";
 import InpEmail from "../InputFields/InpEmail";
 import useCallContext from "../Hooks/useCallContext";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
 import Loader from "../Root/Loader/Loader";
 const LogIn = () => {
   const img = "https://source.unsplash.com/featured/1080x720/?exotic";
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
   const location = useLocation()
+  const navigate = useNavigate();
+  console.log(location.state);
   const { user, signUser, loading, signUserWithGoogle } = useCallContext();
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
   const onSubmit = (data, e) => {
     const { email, pass } = data;
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(pass)) {
@@ -38,7 +33,7 @@ const LogIn = () => {
       .then(() => {
         e.target.reset();
         navigate(location?.state || "/");
-        toast.success("Welcome To KraftFix", {
+        toast.success("Welcome Back to KraftFix", {
           position: "top-center",
           style: {
             backgroundColor: "#007bff",
@@ -63,7 +58,7 @@ const LogIn = () => {
   const handleSocialSignIn = async (method) => {
     try {
       await method();
-      toast.success("Welcome To KraftFix", {
+      toast.success("Welcome Back to KraftFix", {
         position: "top-center",
         style: {
           backgroundColor: "#007bff",

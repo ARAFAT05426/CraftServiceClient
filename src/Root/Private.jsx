@@ -10,7 +10,7 @@ const Private = ({ children }) => {
   }
   if (!user) {
     return (
-      <Navigate to={"/logIn"} state={location?.pathname || "/"} replace={true}></Navigate>
+      <Navigate to={"/logIn"} state={location?.pathname}></Navigate>
     );
   }
   return <section>{children}</section>;

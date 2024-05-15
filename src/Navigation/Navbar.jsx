@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/resources/logo.png";
-import { FiUserPlus } from "react-icons/fi";
-import "./navBar.css";
+import { CiLogin } from "react-icons/ci";import "./navBar.css";
 import ThemeToggler from "./ThemeToggler";
 import Links from "./Links";
 import UserDropdown from "./UserDropdown";
@@ -45,7 +44,7 @@ const Navbar = () => {
             act ? "h-[50vh] pt-7" : "h-0"
           }`}
         >
-          <Links />
+          <Links func={setAct} stat={act} />
         </div>
       </div>
       {/* Right Area */}
@@ -55,7 +54,7 @@ const Navbar = () => {
           <UserDropdown />
         ) : (
           <Link to={"/signUp"}>
-            <FiUserPlus className=" text-2xl lg:text-4xl" />
+            <CiLogin className=" text-2xl lg:text-4xl" />
           </Link>
         )}
       </div>

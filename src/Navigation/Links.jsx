@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 import { NavLink, useLocation } from "react-router-dom";
-
-const Links = () => {
+import PropTypes from "prop-types";
+const Links = ({func, stat}) => {
   const location = useLocation();
   const [activeRoute, setActiveRoute] = useState("");
 
@@ -13,20 +13,23 @@ const Links = () => {
 
   return (
     <Fade cascade direction="down" duration={600} className="flex">
-      <NavLink to={"/"} className={`cBtn hover:border-b-primary ${activeRoute === "/" ? "bg-primary" : ""}`}>
+      <NavLink onClick={() =>func(!stat)} to={"/"} className={`cBtn hover:border-b-primary ${activeRoute === "/" ? "bg-primary" : ""}`}>
         Home
       </NavLink>
-      <NavLink to={"/services"} className={`cBtn hover:border-b-primary ${activeRoute === "/services" ? "bg-primary" : ""}`}>
+      <NavLink onClick={() =>func(!stat)} to={"/services"} className={`cBtn hover:border-b-primary ${activeRoute === "/services" ? "bg-primary" : ""}`}>
       Services
       </NavLink>
-      <NavLink to={"/about"} className={`cBtn hover:border-b-primary ${activeRoute === "/about" ? "bg-primary" : ""}`}>
+      <NavLink onClick={() =>func(!stat)} to={"/about"} className={`cBtn hover:border-b-primary ${activeRoute === "/about" ? "bg-primary" : ""}`}>
         About
       </NavLink>
-      <NavLink to={"/contact"} className={`cBtn hover:border-b-primary ${activeRoute === "/contact" ? "bg-primary" : ""}`}>
+      <NavLink onClick={() =>func(!stat)} to={"/contact"} className={`cBtn hover:border-b-primary ${activeRoute === "/contact" ? "bg-primary" : ""}`}>
         Contact
       </NavLink>
     </Fade>
   );
 };
-
+Links.propTypes ={
+  func: PropTypes.func,
+  stat: PropTypes.bool
+}
 export default Links;

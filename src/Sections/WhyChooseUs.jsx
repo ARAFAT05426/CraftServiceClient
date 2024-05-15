@@ -1,4 +1,4 @@
-import { HiOutlineHomeModern } from "react-icons/hi2";
+import { GiModernCity } from "react-icons/gi";
 import { GiCargoCrate } from "react-icons/gi";
 import { PiGarageDuotone } from "react-icons/pi";
 import { Fade } from "react-awesome-reveal";
@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
         <Fade direction="up" duration={700}>
           <div className="flex flex-col items-center space-y-3">
             <button className="text-9xl h-56 w-56 p-5 rounded-full border-2 border-primary  text-center">
-              <HiOutlineHomeModern className="text-9xl mx-auto h-48 w-4h-48 text-primary " />
+              <GiModernCity className="text-9xl mx-auto h-48 w-4h-48 text-primary " />
             </button>
             <h1 className="text-xl font-semibold">OVER 15 YEARS EXPERIENCE</h1>
             <hr className="border-b-2 border-b-primary w-1/12" />

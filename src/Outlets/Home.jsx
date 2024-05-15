@@ -1,15 +1,23 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Sections/Banner";
 import ClientParalax from "../Sections/ClientParalax";
 import PopularServices from "../Sections/PopularServices";
 import WhyChooseUs from "../Sections/WhyChooseUs";
+import Partners from "../Sections/Partners";
+import Faq from "../Sections/Faq";
 
- const Home = () => {
+const Home = () => {
     return (
-        <section className="h-[700vh]">
+        <section className="">
+            <Helmet>
+                <title>KraftFix | Home</title>
+            </Helmet>
             <Banner/>
+            <WhyChooseUs />
             <PopularServices />
             <ClientParalax />
-            <WhyChooseUs />
+            <Faq />
+            <Partners />
         </section>
     );
 };

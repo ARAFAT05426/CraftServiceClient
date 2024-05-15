@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 const Modal = ({ data = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,6 @@ const Modal = ({ data = {} }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data, e) => {
     try {
-      // Define booking data
       const bookingData = {
         serviceId: _id,
         serviceName,
@@ -43,14 +43,12 @@ const Modal = ({ data = {} }) => {
       };
       const res = await axiosSecure.post('/bookings', bookingData);
       setIsOpen(!isOpen)
-      toast.success("Booking Successfull", {
-        position: "top-center",
-        style: {
-          backgroundColor: "#007bff",
-          color: "white",
-        },
-      });
       e.target.reset();
+      Swal.fire(
+        "Service Booked",
+        "The service has been booked successfully.",
+        "success"
+      );
       console.log(res.data);
     } catch (error) {
       console.error("An error occurred while processing your booking. Please try again later.", error);
@@ -82,7 +80,7 @@ const Modal = ({ data = {} }) => {
                 <IoIosCloseCircleOutline className="text-3xl font-bold" />
               </h1>
             </div>
-            <div className="px-4 lg:px-10 pb-4 lg:pb-10 w-[80vw] space-y-2 lg:space-y-5">
+            <div style={{scrollbarWidth: 'thin'}} className="px-4 lg:px-10 pb-4 lg:pb-10 w-[80vw] h-fit lg:h-[55vh] overflow-y-auto space-y-2 lg:space-y-5">
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 id="book"
@@ -130,7 +128,7 @@ const Modal = ({ data = {} }) => {
                     Pick Your Date
                   </h1>
                   <DatePicker
-                    className="px-3 lg:px-5 py-1 lg:py-3 font-semibold text-xs lg:text-base border border-base-200 bg-base-200/75 rounded w-[35vw] lg:w-[38vw] cursor-pointer"
+                    className="px-3 lg:px-5 py-1 lg:py-3 font-semibold text-xs lg:text-base border border-base-200 bg-base-200/75 rounded w-[35vw] lg:w-[37vw] cursor-pointer"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />

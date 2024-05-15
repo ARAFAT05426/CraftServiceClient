@@ -1,18 +1,23 @@
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 import { BiMap } from "react-icons/bi";
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
 
 const About = () => {
   const personImageUrls = [
-    "https://randomuser.me/api/portraits/men/1.jpg",
-    "https://randomuser.me/api/portraits/women/2.jpg",
-    "https://randomuser.me/api/portraits/men/3.jpg",
-    "https://randomuser.me/api/portraits/women/4.jpg",
-    "https://randomuser.me/api/portraits/women/5.jpg",
-    "https://randomuser.me/api/portraits/women/6.jpg",
+    "/public/resources/team01.png",
+    "/public/resources/team02.png",
+    "/public/resources/team03.png",
+    "/public/resources/team04.png",
+    "/public/resources/team05.jpg",
+    "/public/resources/team06.png",
+    "/public/resources/team07.jpg",
   ];
   return (
     <section>
+      <Helmet>
+        <title>Kraftfix | About</title>
+      </Helmet>
       <div className="container mx-auto px-4 py-16 sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
@@ -79,22 +84,24 @@ const About = () => {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row-reverse items-center justify-between mt-5">
-          <div className="space-y-3">
-            <h1 className="text-5xl font-semibold text-left lg:text-right ">
-              Our Creative Team
-            </h1>
-            <p className="max-w-lg text-left lg:text-right font-semibold">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              ut nemo rerum. Tenetur, consequuntur harum tempore quisquam totam
-              similique cupiditate, incidunt nesciunt delectus beatae blanditiis
-              accusantium quas perferendis earum eveniet itaque, sit expedita
-              nulla minima voluptates maxime. Temporibus sed maxime dicta ipsam
-              incidunt iste dolore distinctio obcaecati odio iure facilis, culpa
-              saepe autem, pariatur ipsa delectus commodi et beatae laborum,
-              dolor velit libero qui voluptatibus. Quis rerum saepe dolorem
-              itaque?
-            </p>
-          </div>
+          <Fade direction="right">
+            <div className="space-y-3">
+              <h1 className="text-5xl font-semibold text-left lg:text-right ">
+                Our Creative Team
+              </h1>
+              <p className="max-w-lg text-left lg:text-right font-semibold">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Ratione ut nemo rerum. Tenetur, consequuntur harum tempore
+                quisquam totam similique cupiditate, incidunt nesciunt delectus
+                beatae blanditiis accusantium quas perferendis earum eveniet
+                itaque, sit expedita nulla minima voluptates maxime. Temporibus
+                sed maxime dicta ipsam incidunt iste dolore distinctio obcaecati
+                odio iure facilis, culpa saepe autem, pariatur ipsa delectus
+                commodi et beatae laborum, dolor velit libero qui voluptatibus.
+                Quis rerum saepe dolorem itaque?
+              </p>
+            </div>
+          </Fade>
           <div>
             <div className="flex justify-between items-center gap-5 w-full p-5 ">
               <div className="flex flex-col items-end space-y-2">
@@ -105,7 +112,7 @@ const About = () => {
                 />
                 <img
                   className="object-cover rounded-full shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out w-32 h-32 sm:h-48 xl:h-64 sm:w-48 xl:w-64 mt-6 border border-white"
-                  src={personImageUrls[5]}
+                  src={personImageUrls[6]}
                   alt="Team member 6"
                 />
                 <img

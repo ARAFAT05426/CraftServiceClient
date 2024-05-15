@@ -1,8 +1,7 @@
 import { Fade, Flip } from "react-awesome-reveal";
 import { Parallax } from "react-parallax";
-
+import clientImg from "/resources/paralaxImg.jpg"
 const ClientParalax = () => {
-  // Array of data for mapping
   const data = [
     { number: 751, overlayText: "COMPLETED PROJECTS" },
     { number: 149, overlayText: "EXPERT WORKERS" },
@@ -15,7 +14,7 @@ const ClientParalax = () => {
       <Parallax
         className="w-full h-[65vh] lg:h-[40vh] flex flex-col space-y-5"
         blur={{ min: -15, max: 25 }}
-        bgImage="/public/resources/paralaxImg.jpg"
+        bgImage={clientImg}
         bgImageAlt="paralaxImg"
         strength={500}
       >

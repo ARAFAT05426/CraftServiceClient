@@ -1,10 +1,10 @@
 import { Fade } from "react-awesome-reveal"; // Import Fade animation from react-awesome-reveal
-import { FiLink, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from '/resources/logo.png'
 const Footer = () => {
   return (
-    <div className="bg-base-200 rounded text-base-content">
+    <div className="bg-base-200 rounded text-base-content overflow-hidden">
       <div className="p-4 flex flex-col lg:flex-row justify-around items-center sm:p-12">
         {/* Left_Area */}
         <div className="text-center">
@@ -14,7 +14,7 @@ const Footer = () => {
             </h1>
           </Fade>
           <Fade>
-            <p className="text-sm font-semibold">Best home-repair, SomeCompany</p>
+            <p className="text-sm font-semibold">Best home-repair</p>
           </Fade>
         </div>
         {/* Divider_Area */}
@@ -23,15 +23,11 @@ const Footer = () => {
           <Fade cascade>
             <div className="flex items-center py-1">
               <FiMail className="text-base-content" size={18} />
-              <span className="px-4">irene.sims@example.com</span>
+              <span className="px-4">kraftfix@gmail.com</span>
             </div>
             <div className="flex items-center py-1">
               <FiPhone className="text-base-content" size={18} />
-              <span className="px-4">+123-456-7890</span>
-            </div>
-            <div className="flex items-center py-1">
-              <FiLink className="text-base-content" size={18} />
-              <span className="px-4">example.com</span>
+              <span className="px-4">+012 6666 8888</span>
             </div>
             <div className="flex items-center py-1">
               <FiMapPin className="text-base-content" size={18} />

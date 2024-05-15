@@ -35,14 +35,14 @@ const UserDropdown = () => {
         />
       </button>
       <div
-        className={`dropdown-menu absolute bg-base-200 bg-opacity-85  space-y-2 top-full mt-2 text-center ${
+        className={`dropdown-menu absolute bg-base-200 bg-opacity-85 right-0 space-y-2 top-full mt-2 text-center ${
           isOpen ? "h-auto py-5" : "h-0"
         }`}
       >
-        <NavLink className="font-semibold px-3 py-1" to={'/bookedServices'}>Booked Service</NavLink>
-        <NavLink className="font-semibold px-3 py-1" to={'/addService'}>Add Service</NavLink>
-        <NavLink className="font-semibold px-3 py-1" to={'/manageService'}>Manage Service</NavLink>
-        <NavLink className="font-semibold px-3 py-1" to={'/servicesToDo'}>Services To Do</NavLink>
+        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/bookedServices'}>Booked Service</NavLink>
+        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/addService'}>Add Service</NavLink>
+        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/manageService'}>Manage Service</NavLink>
+        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/servicesToDo'}>Services To Do</NavLink>
         <BtnPrimary click={handleLogOut} title={'Log Out'} cStyle={'w-4/5 mx-auto'} />
       </div>
     </div>

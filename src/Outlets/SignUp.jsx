@@ -53,11 +53,10 @@ const SignUp = () => {
         });
       })
       .catch((err) => {
-        // Display error toast with the error message
         toast.error(err.message, {
           position: "top-center",
           style: {
-            backgroundColor: "#dc3545", // Red color for error
+            backgroundColor: "#dc3545",
             color: "white",
           },
         });

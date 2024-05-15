@@ -3,6 +3,7 @@ import { IoChatbubbles } from "react-icons/io5";
 import { Fade, Flip } from "react-awesome-reveal"; // Import Fade animation from react-awesome-reveal
 import BtnPrimary from "../Buttons/BtnPrimary";
 import InpDummy from "../InputFields/InpDummy";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const img = "https://source.unsplash.com/random/1920x1080";
@@ -19,7 +20,7 @@ const Contact = () => {
         <IoChatbubbles className="text-6xl font-bold p-3 rounded-full border" />
       ),
       title: "Chat with our sales team",
-      phoneNumber: "+353 1 512 4400",
+      phoneNumber: "+012 6666 8888",
     },
   ];
   const description = [
@@ -33,6 +34,9 @@ const Contact = () => {
   ];
   return (
     <section className="pt-5">
+      <Helmet>
+        <title>KraftFix | Contact</title>
+      </Helmet>
       <div className="py-10">
         <div
           className="h-[45vh] bg-cover bg-no-repeat bg-center"

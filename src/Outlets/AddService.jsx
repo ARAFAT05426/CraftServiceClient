@@ -7,6 +7,7 @@ import useCallContext from "../Hooks/useCallContext";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { Fade, Flip } from "react-awesome-reveal"; // Import the desired animation effect
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { register, handleSubmit } = useForm();
@@ -30,7 +31,7 @@ const AddService = () => {
       providerEmail,
     };
     try {
-      const response = await axiosSecure.post("/services", serviceData);
+      await axiosSecure.post("/services", serviceData);
       e.target.reset();
       toast.success("Service Added Successfully", {
         position: "top-center",
@@ -39,7 +40,6 @@ const AddService = () => {
           color: "white",
         },
       });
-      console.log(response.data);
     } catch (err) {
       console.error("Error adding service:", err);
       toast.error("Failed to add service", {
@@ -53,13 +53,16 @@ const AddService = () => {
   };
   return (
     <section className="pt-20">
+      <Helmet>
+        <title>KraftFix | AddServices</title>
+      </Helmet>
       <div className="text-center">
-        <Fade direction="up" duration={500}>
+        <Fade triggerOnce direction="up" duration={500}>
           <h1 className="text-5xl font-bold">
             Share Your <span className="text-primary">Service</span>
           </h1>
         </Fade>
-        <Fade direction="up" delay={600}>
+        <Fade triggerOnce direction="up" delay={600}>
           <p className="max-w-5xl mx-auto font-semibold text-center">
             Here, you can easily share your expertise and offer your services
             to our community. Simply fill out the form with details about your
@@ -70,7 +73,7 @@ const AddService = () => {
         </Fade>
       </div>
       <div className="px-3 lg:px-32 py-16 flex flex-col lg:flex-row items-center gap-5">
-        <Fade className="w-1/2" direction="left" delay={800}>
+        <Fade className="w-1/2" triggerOnce direction="left" delay={800}>
           <div>
             <img className="w-full" src={addService} alt="" />
           </div>
@@ -81,7 +84,7 @@ const AddService = () => {
             id="service"
             className="grid grid-cols-2 gap-y-2 gap-x-5 items-center"
           >
-            <Fade direction="right" delay={1000}>
+            <Fade triggerOnce direction="right" delay={1000}>
               <div>
                 <InpText
                   title={"Service Name"}
@@ -91,7 +94,7 @@ const AddService = () => {
                 />
               </div>
             </Fade>
-            <Fade direction="right" delay={1200}>
+            <Fade triggerOnce direction="right" delay={1200}>
               <div>
                 <InpAny
                   title={"Price"}
@@ -102,7 +105,7 @@ const AddService = () => {
                 />
               </div>
             </Fade>
-            <Fade className="col-span-2" direction="right" delay={1400}>
+            <Fade className="col-span-2" triggerOnce direction="right" delay={1400}>
               <div>
                 <InpText
                   title={"Service Area"}
@@ -112,7 +115,7 @@ const AddService = () => {
                 />
               </div>
             </Fade>
-            <Fade className="col-span-2" direction="right" delay={1600}>
+            <Fade className="col-span-2" triggerOnce direction="right" delay={1600}>
               <div>
                 <div>
                   <InpAny
@@ -124,7 +127,7 @@ const AddService = () => {
                 </div>
               </div>
             </Fade>
-            <Fade className="col-span-2" direction="right" delay={1800}>
+            <Fade className="col-span-2" triggerOnce direction="right" delay={1800}>
               <div>
                 <h1 className="text-lg font-bold">Description</h1>
                 <textarea
@@ -136,7 +139,7 @@ const AddService = () => {
               </div>
             </Fade>
           </form>
-          <Flip direction="horizontal" delay={2000}>
+          <Flip triggerOnce direction="horizontal" delay={2000}>
             <div>
               <BtnPrimary title={"Add Service"} form={"service"} cStyle={"w-full"} />
             </div>

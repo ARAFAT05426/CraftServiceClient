@@ -24,8 +24,8 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/services',
-        element: <Services />
+        path: "/services",
+        element: <Services />,
       },
       {
         path: "/about",
@@ -44,26 +44,47 @@ const routes = createBrowserRouter([
         element: <LogIn />,
       },
       {
-        path: '/bookedServices',
-        element: <Private><BookedServices /></Private>
+        path: "/bookedServices",
+        element: (
+          <Private>
+            <BookedServices />
+          </Private>
+        ),
       },
       {
-        path: '/addService',
-        element: <Private><AddService /></Private>
+        path: "/addService",
+        element: (
+          <Private>
+            <AddService />
+          </Private>
+        ),
       },
       {
-        path: '/manageService',
-        element: <Private><ManageService /></Private>
+        path: "/manageService",
+        element: (
+          <Private>
+            <ManageService />
+          </Private>
+        ),
       },
       {
-        path: '/servicesToDo',
-        element: <Private><ServiceToDo /></Private>
+        path: "/servicesToDo",
+        element: (
+          <Private>
+            <ServiceToDo />
+          </Private>
+        ),
       },
       {
-        path: '/serviceDetails/:id',
-        element: <Private><ServiceDetails /></Private>,
-        loader: async({params}) => await fetch(`${import.meta.env.VITE_API}/services/${params.id}`)
-      }
+        path: "/serviceDetails/:id",
+        element: (
+          <Private>
+            <ServiceDetails />
+          </Private>
+        ),
+        loader: async ({ params }) =>
+          await fetch(`${import.meta.env.VITE_API}/services/${params.id}`),
+      },
     ],
   },
 ]);
