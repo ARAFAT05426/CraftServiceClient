@@ -9,15 +9,17 @@ import BtnPrimary from "../Buttons/BtnPrimary";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+
 const UpdateModal = ({ id, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit } = useForm();
   const axiosSecure = useAxiosSecure();
+
   const onSubmit = async (data) => {
     try {
       await axiosSecure.put(`/services/${id}`, data);
-      await refetch()
-      setIsOpen(!isOpen)
+      await refetch();
+      setIsOpen(false);
       toast.success("Service updated successfully.", {
         position: "top-center",
         style: {
@@ -36,9 +38,9 @@ const UpdateModal = ({ id, refetch }) => {
       });
     }
   };
+
   return (
     <div>
-      {/* Open the UpdateModal using onClick */}
       <button
         className="p-2 bg-blue-400 rounded-full"
         onClick={() => setIsOpen(!isOpen)}
@@ -46,25 +48,20 @@ const UpdateModal = ({ id, refetch }) => {
         <FaRegEdit className="text-xl text-base-100" />
       </button>
 
-      {/* UpdateModal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="relative bg-base-100 p-6 rounded-lg shadow-lg">
+          <div className="relative bg-base-100 p-4 top-0 rounded-lg shadow-lg max-w-md w-full">
             <div className="flex justify-end p-3">
               <h1
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(false)}
                 className="text-end cursor-pointer"
               >
                 <IoIosCloseCircleOutline className="text-3xl font-bold" />
               </h1>
             </div>
-            <div className="w-full space-y-5">
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                id="service"
-                className="grid grid-cols-2 gap-y-2 gap-x-5 items-center"
-              >
-                <Fade direction="right" duration={500}>
+            <div className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <Fade cascade duration={500}>
                   <div>
                     <InpText
                       title={"New Service Name"}
@@ -73,8 +70,6 @@ const UpdateModal = ({ id, refetch }) => {
                       register={register}
                     />
                   </div>
-                </Fade>
-                <Fade direction="right" delay={500}>
                   <div>
                     <InpAny
                       title={"New Price"}
@@ -84,8 +79,6 @@ const UpdateModal = ({ id, refetch }) => {
                       register={register}
                     />
                   </div>
-                </Fade>
-                <Fade className="col-span-2" direction="right" delay={700}>
                   <div>
                     <InpText
                       title={"Service Area"}
@@ -94,36 +87,30 @@ const UpdateModal = ({ id, refetch }) => {
                       register={register}
                     />
                   </div>
-                </Fade>
-                <Fade className="col-span-2" direction="right" delay={900}>
                   <div>
-                    <div>
-                      <InpAny
-                        title={"New Service Image"}
-                        type={"url"}
-                        name={"imgURL"}
-                        register={register}
-                      />
-                    </div>
+                    <InpAny
+                      title={"New Service Image"}
+                      type={"url"}
+                      name={"imgURL"}
+                      register={register}
+                    />
                   </div>
-                </Fade>
-                <Fade className="col-span-2" direction="right" delay={1100}>
                   <div>
-                    <h1 className="text-lg font-bold">Description</h1>
+                    <h1 className="text-xs lg:text-lg font-bold">Description</h1>
                     <textarea
-                      className="w-full border bg-base-200 px-5 font-semibold py-3 rounded"
-                      rows={"7"}
+                      className="w-full border bg-base-200 px-3 py-2 rounded"
+                      rows={"5"}
                       placeholder="Update Your Service Description Here..."
                       {...register("description", { required: true })}
                     ></textarea>
                   </div>
                 </Fade>
               </form>
-              <Flip direction="horizontal" delay={1300}>
+              <Flip delay={1000}>
                 <div>
                   <BtnPrimary
-                    title={"Add Service"}
-                    form={"service"}
+                    title={"Update Service"}
+                    onClick={handleSubmit(onSubmit)}
                     cStyle={"w-full"}
                   />
                 </div>
@@ -135,8 +122,10 @@ const UpdateModal = ({ id, refetch }) => {
     </div>
   );
 };
+
 UpdateModal.propTypes = {
   id: PropTypes.string.isRequired,
-  refetch: PropTypes.func
+  refetch: PropTypes.func.isRequired,
 };
+
 export default UpdateModal;

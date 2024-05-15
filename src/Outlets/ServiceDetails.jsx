@@ -96,11 +96,11 @@ const ServiceDetails = () => {
               </Fade>
               <Fade direction="down" delay={1300}>
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-xl font-semibold">
+                  <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-sm lg:text-xl font-semibold">
                     <IoPricetagsOutline />
                     <h1>$ {price}</h1>
                   </div>
-                  <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-xl font-semibold">
+                  <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-sm lg:text-xl font-semibold">
                     <MdOutlineWrongLocation />
                     <h1>{serviceArea}</h1>
                   </div>

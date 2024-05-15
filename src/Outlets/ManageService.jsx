@@ -66,7 +66,7 @@ const ManageService = () => {
           <Flip triggerOnce direction="horizontal" delay={800}>
             <div
               style={{ scrollbarWidth: "thin" }}
-              className="overflow-x-auto no-scrollbar bg-base-200 p-7 rounded-md mt-10 mb-20"
+              className="overflow-x-auto no-scrollbar bg-base-200 p-7 rounded-md mt-10 mb-20 min-h-screen flex flex-col justify-center"
             >
               {data.length === 0 ? (
                 <Fade direction="down" delay={1500}>
@@ -80,7 +80,7 @@ const ManageService = () => {
                     <thead className="font-bold border-b border-b-base-300">
                       <tr className="text-left w-full">
                         <th className="px-4 py-2 text-base-content ">#</th>
-                        <th className="px-4 py-2 text-base-content ">
+                        <th className="px-4 py-2 text-base-content hidden lg:flex">
                           Service ID
                         </th>
                         <th className="px-4 py-2 text-base-content ">
@@ -89,7 +89,7 @@ const ManageService = () => {
                         <th className="px-4 py-2 text-base-content ">
                           Service Price
                         </th>
-                        <th className="px-4 py-2 text-base-content">
+                        <th className="px-4 py-2 text-base-content hidden lg:flex">
                           Service Location
                         </th>
                         <th className="px-4 py-2 text-base-content">Actions</th>
@@ -103,14 +103,14 @@ const ManageService = () => {
                           className="hover:bg-gray-200 border-b border-b-base-300 px-5 transition-colors duration-300"
                         >
                           <td className="px-4 py-2">{index + 1}</td>
-                          <td className="px-4 py-2">{item?._id}</td>
+                          <td className="px-4 py-2 hidden lg:flex">{item?._id}</td>
                           <td className="px-4 py-2">{item?.serviceName}</td>
                           <td className="px-4 py-2">$ {item?.price}</td>
-                          <td className="px-4 py-2">{item?.serviceArea}</td>
-                          <td className="px-4 py-2">
+                          <td className="px-4 py-2 hidden lg:flex">{item?.serviceArea}</td>
+                          <td className="px-4 py-2 relative">
                             <UpdateModal id={item?._id} refetch={refetch} />
                           </td>
-                          <td className="px-4 py-2">
+                          <td className="px-4 py-2 mx-auto">
                             <button
                               onClick={() => handleDelete(item?._id)}
                               className="p-1 bg-red-500 rounded-full transition-colors duration-300 hover:bg-red-600"
