@@ -70,7 +70,7 @@ const Banner = () => {
                   </p>
                 </Fade>
                 <Flip direction="horizontal" delay={1000}>
-                  <BtnSecondary title={"Hello Swiper"} />
+                  <BtnSecondary title={"Explore More"} />
                 </Flip>
               </div>
             </Parallax>

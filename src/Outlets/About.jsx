@@ -5,14 +5,15 @@ import { BsFillArrowRightSquareFill } from "react-icons/bs";
 
 const About = () => {
   const personImageUrls = [
-    "/public/resources/team01.png",
-    "/public/resources/team02.png",
-    "/public/resources/team03.png",
-    "/public/resources/team04.png",
-    "/public/resources/team05.jpg",
-    "/public/resources/team06.png",
-    "/public/resources/team07.jpg",
+    "/resources/team01.png",
+    "/resources/team02.png",
+    "/resources/team03.png",
+    "/resources/team04.png",
+    "/resources/team05.jpg",
+    "/resources/team06.png",
+    "/resources/team07.jpg",
   ];
+
   return (
     <section>
       <Helmet>
@@ -29,17 +30,10 @@ const About = () => {
             <Fade direction="left" triggerOnce>
               <div className="mb-6">
                 <h2 className="max-w-lg mb-4 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                  Let us handle
-                  <br className="hidden md:block" />
-                  your next{" "}
-                  <span className="text-deep-purple-accent-400">
-                    destination
-                  </span>
+                  Leave Your Home Repairs to Us
                 </h2>
                 <p className="text-base text-gray-700 md:text-lg">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae. explicabo.
+                  Whether it's fixing damaged floorboards, reconstructing roofs, or cleaning gutters for proper drainage, our team of experts has got you covered. We provide high-quality home repair services to ensure your home remains in top condition.
                 </p>
               </div>
             </Fade>
@@ -90,15 +84,7 @@ const About = () => {
                 Our Creative Team
               </h1>
               <p className="max-w-lg text-left lg:text-right font-semibold">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Ratione ut nemo rerum. Tenetur, consequuntur harum tempore
-                quisquam totam similique cupiditate, incidunt nesciunt delectus
-                beatae blanditiis accusantium quas perferendis earum eveniet
-                itaque, sit expedita nulla minima voluptates maxime. Temporibus
-                sed maxime dicta ipsam incidunt iste dolore distinctio obcaecati
-                odio iure facilis, culpa saepe autem, pariatur ipsa delectus
-                commodi et beatae laborum, dolor velit libero qui voluptatibus.
-                Quis rerum saepe dolorem itaque?
+              We provide professional services with an amazing team.
               </p>
             </div>
           </Fade>

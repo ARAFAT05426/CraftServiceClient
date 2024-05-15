@@ -27,20 +27,28 @@ const Modal = ({ data = {} }) => {
   const axiosSecure = useAxiosSecure()
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data, e) => {
+    const bookingData = {
+      serviceId: _id,
+      serviceName,
+      serviceImage: imgURL,
+      providerEmail,
+      providerName,
+      price,
+      userName: user?.displayName,
+      userEmail: user?.email,
+      serviceDate: startDate,
+      instructions: data.instructions,
+      status: "pending",
+    };
+    if(user?.email == providerEmail){
+      return Swal.fire(
+        "Forbidden",
+        "You cant bid on your own service.",
+        "error"
+      );
+    }
     try {
-      const bookingData = {
-        serviceId: _id,
-        serviceName,
-        serviceImage: imgURL,
-        providerEmail,
-        providerName,
-        price,
-        userName: user?.displayName,
-        userEmail: user?.email,
-        serviceDate: startDate,
-        instructions: data.instructions,
-        status: "pending",
-      };
+
       const res = await axiosSecure.post('/bookings', bookingData);
       setIsOpen(!isOpen)
       e.target.reset();

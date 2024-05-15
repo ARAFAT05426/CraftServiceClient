@@ -15,7 +15,7 @@ const Root = () => {
     <main className="text-text font-common">
       <Toaster />
       <Navbar />
-      <section className="">
+      <section className=" min-h-[calc(100vh-64)]">
         <Outlet/>
       </section>
       <Footer />

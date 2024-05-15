@@ -49,7 +49,7 @@ const ManageService = () => {
   }
 
   return (
-    <section className="pt-20">
+    <section className="pt-16 min-h-screen">
       <Helmet>
         <title>KraftFix | MannageServices</title>
       </Helmet>

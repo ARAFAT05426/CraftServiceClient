@@ -44,7 +44,7 @@ const ServiceToDo = () => {
     return <Loader />
   }
   return (
-    <section className="pt-20 px-3 lg:px-32">
+    <section className="pt-20 px-3 lg:px-32 min-h-screen">
       <Helmet>
         <title>KraftFix | ServicesToDo</title>
       </Helmet>

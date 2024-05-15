@@ -22,7 +22,7 @@ const ServiceDetails = () => {
     providerName,
   } = data;
   return (
-    <section className="pt-20">
+    <section className="min-h-screen pt-16">
       <Helmet>
         <title>KraftFix | Service:{serviceName}</title>
       </Helmet>
@@ -34,15 +34,16 @@ const ServiceDetails = () => {
           }}
         >
           <h1 className="text-center font-bold text-4xl lg:text-7xl text-gray-300">
-            Life is simple
+            Home repair is
             <span className="font-sideHeading text-primary ml-2">
               <Typewriter
-                words={["KraftFix", "Easy", "Functional"]}
+                words={["Simple", "Easy", "Quick"]}
                 cursor
                 cursorStyle="|"
                 loop
               />
             </span>
+              KraftFix
           </h1>
           <Fade
             direction="down"
@@ -97,7 +98,7 @@ const ServiceDetails = () => {
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-xl font-semibold">
                     <IoPricetagsOutline />
-                    <h1>{price}</h1>
+                    <h1>$ {price}</h1>
                   </div>
                   <div className="flex items-center gap-2 bg-primary bg-opacity-70 px-5 py-1 w-fit rounded-full text-xl font-semibold">
                     <MdOutlineWrongLocation />

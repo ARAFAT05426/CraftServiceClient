@@ -5,44 +5,68 @@ import useRefetch from "../Hooks/useRefetch";
 import ServiceCard from "../CARD/ServiceCard";
 import { Fade, Flip } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
+
 const Services = () => {
   const [itemsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchText, setSearchText] = useState("");  
-  const { data: servicesData, loading: servicesLoading } = useRefetch(`/allServices?size=${itemsPerPage}&skip=${currentPage}&search=${searchText}`);
-    const { data: totalLengthData, loading: totalLengthLoading } = useRefetch(`/servicesTotalLength?search=${searchText}`);
+  const [searchText, setSearchText] = useState("");
+  const { data: servicesData, loading: servicesLoading } = useRefetch(
+    `/allServices?size=${itemsPerPage}&skip=${currentPage}&search=${searchText}`
+  );
+  const { data: totalLengthData, loading: totalLengthLoading } = useRefetch(
+    `/servicesTotalLength?search=${searchText}`
+  );
+
   useEffect(() => {
     if (totalLengthData && totalLengthData.totalLength) {
       setTotalPages(Math.ceil(totalLengthData.totalLength / itemsPerPage));
     }
-  }, [totalLengthData, itemsPerPage]);
+  }, [totalLengthData, itemsPerPage, searchText]);
+
   const handlePagination = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchText(e.target.search.value);
   };
+
+  const handleReset = () => {
+    setSearchText("");
+    setCurrentPage(1);
+  };
+
   const pages = [...Array(totalPages).keys()].map(
     (pageNumber) => pageNumber + 1
   );
+
   if (servicesLoading || totalLengthLoading) {
     return <Loader />;
   }
+
   return (
     <section className="pt-20 px-5 lg:px-32">
       <Helmet>
         <title>KraftFix | Services</title>
       </Helmet>
       <div className="flex items-center justify-center pt-7">
-        <div className="flex items-center border rounded-md w-1/2 lg:w-1/4">
+        <div className="flex items-center justify-between border border-primary rounded-md w-4/5 lg:w-1/4">
+          <button
+            onClick={handleReset}
+            className="px-5 py-3 font-bold text-lg rounded-s-md bg-primary"
+          >
+            Reset
+          </button>
           <form id="search" className="grow" onSubmit={handleSearch}>
             <input
               className="px-5 py-3 border-none focus-within:outline-none w-full"
               name="search"
               type="text"
               placeholder="Search By Name..."
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
           </form>
           <button
@@ -53,13 +77,25 @@ const Services = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 py-10">
-        {servicesData?.services?.map((item, inx) => (
-          <Flip direction="horizontal" key={inx}><ServiceCard  data={item} /></Flip>
-        ))}
-      </div>
+      {servicesData?.services?.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 py-10 min-h-[calc(100vh-64px)]">
+          {servicesData.services.map((item, inx) => (
+            <Flip direction="horizontal" key={inx}>
+              <ServiceCard data={item} />
+            </Flip>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-10 text-gray-600 min-h-[calc(100vh-64px)]">No services found</div>
+      )}
       <div className="flex items-center justify-center py-10">
-        <Fade direction="up" cascade duration={500} triggerOnce className="flex">
+        <Fade
+          direction="up"
+          cascade
+          duration={500}
+          triggerOnce
+          className="flex"
+        >
           <button
             disabled={currentPage === 1}
             onClick={() => handlePagination(currentPage - 1)}
@@ -87,7 +123,9 @@ const Services = () => {
             disabled={currentPage === totalPages}
             onClick={() => handlePagination(currentPage + 1)}
             className={`flex items-center gap-1 font-semibold px-4 py-2 mx-1 ${
-              currentPage == totalPages ? "cursor-not-allowed" : "cursor-pointer"
+              currentPage == totalPages
+                ? "cursor-not-allowed"
+                : "cursor-pointer"
             } text-gray-700 transition-colors duration-300 transform bg-base-300 hover:bg-blue-600 hover:text-white rounded-md`}
           >
             Next

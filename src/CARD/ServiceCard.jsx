@@ -17,7 +17,7 @@ const ServiceCard = ({ data }) => {
     providerName,
   } = data;
   return (
-    <div className="px-8 py-5 bg-base-200 border border-primary/35 rounded space-y-3 relative c shadow-lg hover:shadow-xl">
+    <div className="px-8 py-5 bg-base-300 border border-primary/35 rounded space-y-3 relative c shadow-lg hover:shadow-xl">
       <div className="relative overflow-hidden rounded transition duration-300">
         <img
           className="w-full h-60 object-cover"
@@ -39,7 +39,7 @@ const ServiceCard = ({ data }) => {
             <h1 className="px-2 lg:px-3 py-[2px] lg:py-1 bg-accent/25 text-base-100 backdrop-blur-xl w-fit rounded-full flex items-center gap-1 cursor-pointer">
               <IoPricetagsOutline className="p-1 text-2xl text-secondary" />
               <span className="text-sm font-bold hover:underline text-base-content transition">
-                {price}
+                $ {price}
               </span>
             </h1>
           </div>

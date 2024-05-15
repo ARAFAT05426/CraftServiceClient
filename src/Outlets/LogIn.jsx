@@ -76,7 +76,7 @@ const LogIn = () => {
     return <Loader />
   }
   return (
-    <section className="pt-20">
+    <section className="pt-16">
       <div
         className="bg-cover bg-no-repeat bg-center py-20"
         style={{
@@ -141,7 +141,7 @@ const LogIn = () => {
               <div className="flex flex-col lg:flex-row items-center justify-around space-y-3 lg:space-y-0">
                 <span
                   onClick={() => handleSocialSignIn(signUserWithGoogle)}
-                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-2/5 text-nowrap text-xl font-bold text-black"
+                  className="px-5 py-3 h-14 bg-white rounded-md flex items-center cursor-pointer gap-2 justify-center w-3/4 lg:w-2/5 text-nowrap text-xl font-bold text-black"
                 >
                   <img
                     className="w-[12%]"

@@ -10,26 +10,26 @@ const UserDropdown = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  const { user, signOutUSer} = useCallContext()
-  const handleLogOut = async() => {
+  const { user, signOutUSer } = useCallContext();
+  const handleLogOut = async () => {
     await signOutUSer();
-    return toast.success(
-      "we will be waiting",
-      {
-        position: "top-center",
-        style: {
-          backgroundColor: "#007bff",
-          color: "white",
-          fontSize: "13px",
-        },
-      }
-    )
+    return toast.success("we will be waiting", {
+      position: "top-center",
+      style: {
+        backgroundColor: "#007bff",
+        color: "white",
+        fontSize: "13px",
+      },
+    });
   };
   return (
     <div className="user-dropdown flex flex-col items-center w-fit relative">
       <button className="z-10" onClick={toggleDropdown}>
         <img
-          className="w-14 p-1 rounded-full"
+          onError={(e) => {
+            e.target.src = "https://i.ibb.co/nDMvB3b/image-Errr.gif";
+          }}
+          className="w-14 p-1 bg-primary rounded-full"
           src={user?.photoURL}
           alt=""
         />
@@ -39,11 +39,39 @@ const UserDropdown = () => {
           isOpen ? "h-auto py-5" : "h-0"
         }`}
       >
-        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/bookedServices'}>Booked Service</NavLink>
-        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/addService'}>Add Service</NavLink>
-        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/manageService'}>Manage Service</NavLink>
-        <NavLink onClick={toggleDropdown} className="font-semibold px-3 py-1" to={'/servicesToDo'}>Services To Do</NavLink>
-        <BtnPrimary click={handleLogOut} title={'Log Out'} cStyle={'w-4/5 mx-auto'} />
+        <NavLink
+          onClick={toggleDropdown}
+          className="font-semibold px-3 py-1"
+          to={"/bookedServices"}
+        >
+          Booked Service
+        </NavLink>
+        <NavLink
+          onClick={toggleDropdown}
+          className="font-semibold px-3 py-1"
+          to={"/addService"}
+        >
+          Add Service
+        </NavLink>
+        <NavLink
+          onClick={toggleDropdown}
+          className="font-semibold px-3 py-1"
+          to={"/manageService"}
+        >
+          Manage Service
+        </NavLink>
+        <NavLink
+          onClick={toggleDropdown}
+          className="font-semibold px-3 py-1"
+          to={"/servicesToDo"}
+        >
+          Services To Do
+        </NavLink>
+        <BtnPrimary
+          click={handleLogOut}
+          title={"Log Out"}
+          cStyle={"w-4/5 mx-auto"}
+        />
       </div>
     </div>
   );
