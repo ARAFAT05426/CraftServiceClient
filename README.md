@@ -1,5 +1,5 @@
 # KlickTrips
-# live-link:- [https://github.com/programming-hero-web-course-4/b9a10-server-side-ARAFAT05426](https://assignment-11-a2a25.web.app/)
+# live-link:- https://assignment-11-a2a25.web.app/
 # Category- Southeast Asia 
 # Sub-Category- All under Southeast-Asia 
 # Features
