@@ -86,7 +86,7 @@ const Faq = () => {
                     <p className="p-8 text-sm">
                       We offer a wide range of repair services including
                       plumbing, electrical, carpentry, painting, and more.
-                      Whether it's fixing a leaky faucet, repairing a broken
+                      Whether it`s fixing a leaky faucet, repairing a broken
                       electrical outlet, or renovating a room, our skilled
                       professionals are equipped to handle it all.
                     </p>

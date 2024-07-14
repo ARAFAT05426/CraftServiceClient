@@ -19,6 +19,7 @@ const ThemeToggler = () => {
   };
 
   return (
+    // ThemeToggler
     <label className="swap swap-rotate">
       <input
         onChange={handleToggle}
